@@ -1,0 +1,20 @@
+.heading {
+	font-family: 'Raleway', sans-serif;
+	padding-bottom: 45px;
+	padding-right: 250px;
+	font-size: 30px;
+	color: #474168;
+	gap: 20px;
+	border-bottom: 2px solid;
+	border-color: #e2dfed99;
+}
+
+.container {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+}
+
+.sidebar {
+	width: 179px;
+}

@@ -1,0 +1,35 @@
+{
+	"questions": [
+		{
+			"name": "question",
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice1",
+					"value": "Никогда"
+				},
+				{
+					"id": "choice2",
+					"value": "Очень редко"
+				},
+				{
+					"id": "choice3",
+					"value": "Иногда"
+				},
+				{
+					"id": "choice4",
+					"value": "Часто"
+				},
+				{
+					"id": "choice5",
+					"value": "Очень часто"
+				},
+				{
+					"id": "choice6",
+					"value": "Каждый день"
+				}
+			]
+		}
+	]
+}
