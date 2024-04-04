@@ -1,10 +1,10 @@
 import React from 'react'
 import MaterialIcon from '../../../ui/MaterialIcon'
 
-const MenuItem = ({ title, icon }) => {
+const MenuItem = ({ title, icon, style = '' }) => {
 	return (
 		<li>
-			<a href='/#'>
+			<a className={style} href='/#'>
 				<MaterialIcon icon={icon} />
 				<span>{title}</span>
 			</a>

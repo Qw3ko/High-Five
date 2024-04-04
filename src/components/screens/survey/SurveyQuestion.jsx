@@ -1,51 +1,73 @@
-import React from 'react'
+import { useState } from 'react'
+import questions from './Questions/questions1.json'
 import styles from './Survey.module.css'
-import SurveyItem from './SurveyItem'
-import surveys from './questions.json'
+import SurveyOption from './SurveyOption'
 
-const SurveyQuestion = ({ question }) => {
-	const surveyQuestion1 = surveys['questions'][0]
+const SurveyQuestion = ({ question, questionNumber }) => {
+	const surveyQuestion = questions[questionNumber][0]
+	const [response, setResponse] = useState([])
 	return (
 		<div className={styles.container}>
 			<span className={styles.heading}>{question}</span>
 			<div>
-				<SurveyItem
-					type={surveyQuestion1.type}
-					id={surveyQuestion1['options'][0]['id']}
-					name={surveyQuestion1.name}
-					value={surveyQuestion1['options'][0]['value']}
+				<SurveyOption
+					type={surveyQuestion.type}
+					id={surveyQuestion['options'][0]['id']}
+					name={surveyQuestion.name}
+					setResponse={setResponse}
+					response={response}
+					value={surveyQuestion['options'][0]['value']}
+					point={0}
 				/>
-				<SurveyItem
-					type={surveyQuestion1.type}
-					id={surveyQuestion1['options'][1]['id']}
-					name={surveyQuestion1.name}
-					value={surveyQuestion1['options'][1]['value']}
+				<SurveyOption
+					type={surveyQuestion.type}
+					id={surveyQuestion['options'][1]['id']}
+					name={surveyQuestion.name}
+					setResponse={setResponse}
+					response={response}
+					value={surveyQuestion['options'][1]['value']}
+					point={1}
 				/>
-				<SurveyItem
-					type={surveyQuestion1.type}
-					id={surveyQuestion1['options'][2]['id']}
-					name={surveyQuestion1.name}
-					value={surveyQuestion1['options'][2]['value']}
+				<SurveyOption
+					type={surveyQuestion.type}
+					id={surveyQuestion['options'][2]['id']}
+					name={surveyQuestion.name}
+					setResponse={setResponse}
+					response={response}
+					value={surveyQuestion['options'][2]['value']}
+					point={3}
 				/>
-				<SurveyItem
-					type={surveyQuestion1.type}
-					id={surveyQuestion1['options'][3]['id']}
-					name={surveyQuestion1.name}
-					value={surveyQuestion1['options'][3]['value']}
+				<SurveyOption
+					type={surveyQuestion.type}
+					id={surveyQuestion['options'][3]['id']}
+					name={surveyQuestion.name}
+					setResponse={setResponse}
+					response={response}
+					value={surveyQuestion['options'][3]['value']}
+					point={4}
 				/>
-				<SurveyItem
-					type={surveyQuestion1.type}
-					id={surveyQuestion1['options'][4]['id']}
-					name={surveyQuestion1.name}
-					value={surveyQuestion1['options'][4]['value']}
+				<SurveyOption
+					type={surveyQuestion.type}
+					id={surveyQuestion['options'][4]['id']}
+					name={surveyQuestion.name}
+					setResponse={setResponse}
+					response={response}
+					value={surveyQuestion['options'][4]['value']}
+					point={5}
 				/>
-				<SurveyItem
-					type={surveyQuestion1.type}
-					id={surveyQuestion1['options'][5]['id']}
-					name={surveyQuestion1.name}
-					value={surveyQuestion1['options'][5]['value']}
+				<SurveyOption
+					type={surveyQuestion.type}
+					id={surveyQuestion['options'][5]['id']}
+					name={surveyQuestion.name}
+					setResponse={setResponse}
+					response={response}
+					value={surveyQuestion['options'][5]['value']}
+					point={6}
 				/>
 			</div>
+			<span className={styles.footerText}>
+				*Этот вопрос является обязательным
+			</span>
 		</div>
 	)
 }

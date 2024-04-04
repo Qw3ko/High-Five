@@ -1,0 +1,882 @@
+{
+	"question1": [
+		{
+			"name": "question1",
+			"id": 1,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice1",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice2",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice3",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice4",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice5",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice6",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question2": [
+		{
+			"name": "question2",
+			"id": 2,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice7",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice8",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice9",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice10",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice11",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice12",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question3": [
+		{
+			"name": "question3",
+			"id": 3,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice13",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice14",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice15",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice16",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice17",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice18",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question4": [
+		{
+			"name": "question4",
+			"id": 4,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice19",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice20",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice21",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice22",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice23",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice24",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question5": [
+		{
+			"name": "question5",
+			"id": 5,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice25",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice26",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice27",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice28",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice29",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice30",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question6": [
+		{
+			"name": "question6",
+			"id": 6,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice31",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice32",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice33",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice34",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice35",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice36",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question7": [
+		{
+			"name": "question7",
+			"id": 7,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice37",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice38",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice39",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice40",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice41",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice42",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question8": [
+		{
+			"name": "question8",
+			"id": 8,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice43",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice44",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice45",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice46",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice47",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice48",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question9": [
+		{
+			"name": "question9",
+			"id": 9,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice49",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice50",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice51",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice52",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice53",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice54",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question10": [
+		{
+			"name": "question10",
+			"id": 10,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice55",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice56",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice57",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice58",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice59",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice60",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question11": [
+		{
+			"name": "question11",
+			"id": 11,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice61",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice62",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice63",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice64",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice65",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice66",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question12": [
+		{
+			"name": "question12",
+			"id": 12,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice67",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice68",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice69",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice70",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice71",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice72",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question13": [
+		{
+			"name": "question13",
+			"id": 13,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice73",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice74",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice75",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice76",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice77",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice78",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question14": [
+		{
+			"name": "question14",
+			"id": 14,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice79",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice80",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice81",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice82",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice83",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice84",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question15": [
+		{
+			"name": "question15",
+			"id": 15,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice85",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice86",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice87",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice88",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice89",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice90",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question16": [
+		{
+			"name": "question16",
+			"id": 16,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice91",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice92",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice93",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice94",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice95",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice96",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question17": [
+		{
+			"name": "question17",
+			"id": 17,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice97",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice98",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice99",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice100",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice101",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice102",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question18": [
+		{
+			"name": "question18",
+			"id": 18,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice103",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice104",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice105",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice106",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice107",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice108",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question19": [
+		{
+			"name": "question19",
+			"id": 19,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice109",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice110",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice111",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice112",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice113",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice114",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question20": [
+		{
+			"name": "question20",
+			"id": 20,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice115",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice116",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice117",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice118",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice119",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice120",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question21": [
+		{
+			"name": "question21",
+			"id": 21,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice121",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice122",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice123",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice124",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice125",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice126",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	],
+	"question22": [
+		{
+			"name": "question22",
+			"id": 22,
+			"type": "radio",
+			"required": true,
+			"options": [
+				{
+					"id": "choice127",
+					"value": "Никогда",
+					"point": 0
+				},
+				{
+					"id": "choice128",
+					"value": "Очень редко",
+					"point": 1
+				},
+				{
+					"id": "choice129",
+					"value": "Иногда",
+					"point": 3
+				},
+				{
+					"id": "choice130",
+					"value": "Часто",
+					"point": 4
+				},
+				{
+					"id": "choice131",
+					"value": "Очень часто",
+					"point": 5
+				},
+				{
+					"id": "choice132",
+					"value": "Каждый день",
+					"point": 6
+				}
+			]
+		}
+	]
+}

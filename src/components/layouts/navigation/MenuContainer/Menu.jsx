@@ -6,12 +6,12 @@ const Menu = () => {
 	return (
 		<div className={styles.menu}>
 			<ul className={styles.ul}>
-				<MenuItem title={'Профиль'} icon={'PiHouseBold'} />
-				<MenuItem title={'Опросы'} icon={'PiClipboardText'} />
-				<MenuItem title={'Рекомендации'} icon={'PiCheckCircle'} />
-				<MenuItem title={'Чат'} icon={'PiChatTeardropDotsThin'} />
-				<MenuItem title={'Настройки'} icon={'PiGearSix'} />
-				<MenuItem title={'Помощь'} icon={'PiQuestion'} />
+				<MenuItem style={styles.inactive} title={'Профиль'} icon={'PiHouseBold'} />
+				<MenuItem  title={'Опросы'} icon={'PiClipboardText'} />
+				<MenuItem style={styles.inactive} title={'Рекомендации'} icon={'PiCheckCircle'} />
+				<MenuItem style={styles.inactive} title={'Чат'} icon={'PiChatTeardropDotsThin'} />
+				<MenuItem style={styles.inactive} title={'Настройки'} icon={'PiGearSix'} />
+				<MenuItem style={styles.inactive} title={'Помощь'} icon={'PiQuestion'} />
 			</ul>
 		</div>
 	)
