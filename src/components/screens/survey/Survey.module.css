@@ -4,7 +4,7 @@
 	margin-top: 3%;
 	padding: 50px;
 	width: 1300px;
-	height: 300px;
+	height: 350px;
 	background-color: #e2dfed33;
 	backdrop-filter: blur(40px);
 	border-radius: 40px;
@@ -72,10 +72,49 @@
 	font-family: 'Raleway', sans-serif;
 	color: #474168;
 	text-align: right;
+	margin-top: 10px;
 }
 
-.value {
-	font-family: 'Raleway', sans-serif;
+.innerQuestion {
 	color: #474168;
 	font-size: 20px;
+}
+
+.ant-radio-inner {
+	height: 24px !important;
+	width: 24px !important;
+}
+
+.ant-radio-input {
+	/* border: -3px solid #E2DFED !important; */
+	background-color: #e2dfed !important;
+	margin-right: 20px;
+}
+
+.ant-radio-inner {
+	background-color: #e2dfed !important;
+}
+
+.ant-radio-checked .ant-radio-inner {
+	border: none;
+}
+.ant-radio-wrapper:hover
+	:where(.css-dev-only-do-not-override-1kuana8).ant-radio-wrapper,
+:where(.css-dev-only-do-not-override-1kuana8).ant-radio-wrapper:hover
+	.ant-radio-inner {
+	border-color: none;
+}
+
+.ant-radio-checked .ant-radio-inner:after {
+	background-color: #474168 !important;
+}
+
+.ant-radio:hover .ant-radio-inner {
+	border-color: #474168 !important;
+}
+
+.ant-radio.ant-wave-target {
+	margin-left: 20px;
+	margin-right: 16px;
+	margin-top: 3px;
 }

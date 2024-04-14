@@ -1,0 +1,86 @@
+ul {
+	padding-left: 0px;
+	list-style: none;
+}
+
+h1 {
+	margin: 0;
+	margin-bottom: 50px;
+}
+
+h2 {
+	font-size: 24px;
+	font-weight: 500;
+}
+
+h3 {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.main__result {
+	width: 100%;
+	max-width: 1300px;
+	/* width: 950px; */
+	height: auto;
+	top: 100px;
+	left: 245px;
+	background-color: #e2dfed99;
+	/* opacity: 0.6; */
+	border-radius: 30px;
+	color: #474168;
+	padding: 40px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 60px;
+}
+
+.wrapper__data {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
+
+.wrapper__inner__data {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.result__data {
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+}
+
+.inner__li {
+	margin-bottom: 20px;
+}
+
+.result__solution {
+}
+.result__interpretation {
+	padding: 20px;
+	background-color: #e2dfed33;
+	border-radius: 20px;
+	padding: 35px;
+}
+
+.results__ul > h2 {
+	font-size: 20px;
+}
+
+.results__ul > {
+	font-size: 16px;
+}
+
+.result__recomendations {
+}
+
+.recomend__ul {
+	margin-left: 20px;
+	list-style: circle;
+}

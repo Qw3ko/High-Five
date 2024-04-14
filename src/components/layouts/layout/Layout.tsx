@@ -1,8 +1,12 @@
-import React from 'react'
-import styles from './Layout.module.css'
+import { FC } from 'react'
 import Navigation from '../navigation/Navigation'
+import styles from './Layout.module.css'
 
-const Layout = ({ children }) => {
+interface Props {
+	children: React.ReactNode
+}
+
+const Layout: FC<Props> = ({ children }) => {
 	return (
 		<div className={styles.layout}>
 			<Navigation />

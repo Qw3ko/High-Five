@@ -14,7 +14,7 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
-		"baseUrl": "./src/",
+		"baseUrl": "./app/",
 		"paths": {
 			"@/components/*": ["components/*"],
 			"@/ui/*": ["components/ui/*"],
@@ -29,6 +29,6 @@
 			"@/store/*": ["store/*"]
 		}
 	},
-	"include": ["**/*.ts", "**/*.tsx", "./tsconfig.json", "src/components/screens/survey/SurveyQuestion.jsx"],
+	"include": ["vite.config.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }

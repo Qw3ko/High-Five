@@ -8,3 +8,20 @@ export type Answers = {
 	text: string
 	answer: Answer[]
 }
+
+export type Question = {
+	id: string | number
+	text: string
+	description: string | null
+	type: string
+	required: boolean
+	defaultValue?: string | null
+	toggle?: boolean
+	role?: string | null
+	options:
+		| null
+		| {
+				value: string
+				id: string
+		  }[]
+}
