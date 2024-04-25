@@ -1,13 +1,12 @@
-import React from 'react'
 import Menu from './Menu'
 import styles from './Menu.module.css'
 import MenuItem from './MenuItem'
 import photo from './Photo.png'
 
-const MenuContainer = () => {
+const MenuContainer = ({ role }) => {
 	return (
 		<>
-			<Menu />
+			<Menu role={role} />
 			<div className={styles.profileInfo}>
 				<img width={50} height={50} src={photo} alt='Profile' />
 				<div className={styles.textContainer}>

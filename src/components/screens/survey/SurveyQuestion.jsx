@@ -2,8 +2,6 @@ import styles from './Survey.module.css'
 import GroupSurveyOption from './GroupSurveyOption'
 
 const SurveyQuestion = ({
-	questionNumber,
-	trend,
 	answer,
 	setAnswer,
 	name,

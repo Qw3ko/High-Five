@@ -1,17 +1,67 @@
-import React from 'react'
 import styles from './Menu.module.css'
 import MenuItem from './MenuItem'
 
-const Menu = () => {
+const Menu = ({ role }) => {
 	return (
 		<div className={styles.menu}>
 			<ul className={styles.ul}>
-				<MenuItem style={styles.inactive} title={'Профиль'} icon={'PiHouseBold'} />
-				<MenuItem  title={'Опросы'} icon={'PiClipboardText'} />
-				<MenuItem style={styles.inactive} title={'Рекомендации'} icon={'PiCheckCircle'} />
-				<MenuItem style={styles.inactive} title={'Чат'} icon={'PiChatTeardropDotsThin'} />
-				<MenuItem style={styles.inactive} title={'Настройки'} icon={'PiGearSix'} />
-				<MenuItem style={styles.inactive} title={'Помощь'} icon={'PiQuestion'} />
+				<MenuItem title={'Профиль'} icon={'PiHouseBold'} link={'/profile'} />
+				{role === true && (
+					<MenuItem
+						style={styles.inactive}
+						title={'Компания'}
+						icon={'PiUserBold'}
+						link={'/*'}
+					/>
+				)}
+				<MenuItem title={'Опросы'} icon={'PiClipboardText'} link={'/survey'} />
+				{role === true && (
+					<MenuItem
+						style={styles.inactive}
+						title={'Шаблоны'}
+						icon={'PiListBulletsBold'}
+						link={'/*'}
+					/>
+				)}
+				<MenuItem
+					style={styles.inactive}
+					title={'Рекомендации'}
+					icon={'PiCheckCircle'}
+					link={'/*'}
+				/>
+				<MenuItem
+					style={styles.inactive}
+					title={'Чат'}
+					icon={'PiChatTeardropDotsThin'}
+					link={'/*'}
+				/>
+				{role === true && (
+					<MenuItem
+						title={'Отчеты'}
+						icon={'PiChartPieSlice'}
+						link={'/statistics'}
+					/>
+				)}
+				{role === true && (
+					<MenuItem
+						style={styles.inactive}
+						title={'История'}
+						icon={'PiSkipBackLight'}
+						link={'/*'}
+					/>
+				)}
+				<MenuItem
+					style={styles.inactive}
+					title={'Настройки'}
+					icon={'PiGearSix'}
+					link={'/*'}
+				/>
+				<MenuItem
+					style={styles.inactive}
+					title={'Помощь'}
+					icon={'PiQuestion'}
+					link={'/*'}
+				/>
 			</ul>
 		</div>
 	)

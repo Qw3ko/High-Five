@@ -6,8 +6,8 @@
 }
 
 .ul {
-	margin-top: 25%;
-	padding-top: 25%;
+	margin-top: 15%;
+	padding-top: 15%;
 	padding-left: 15%;
 	padding-right: 15%;
 	> li {
@@ -23,12 +23,12 @@
 			text-decoration: none;
 			> span {
 				margin-left: 0.75rem;
-				font-size: 22px;
-				line-height: 40px;
+				font-size: 16px;
+				line-height: 18.78px;
 			}
 		}
 	}
-	> li:nth-child(2) {
+	> li:nth-child(7) {
 		background-color: #e2dfed;
 		border-radius: 40px;
 	}

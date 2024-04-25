@@ -1,10 +1,50 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Layout from './components/layouts/layout/Layout'
+import Profile from './components/screens/profile/Profile'
+import Analytics from './components/screens/statistics/Analytics/Analytics'
+import GeneralInfo from './components/screens/statistics/GeneralInfo/GeneralInfo'
+import Profiles from './components/screens/statistics/Profiles/Profiles'
+import Statistics from './components/screens/statistics/Statistics'
+import SurveyContainer from './components/screens/survey/SurveyContainer'
 import './index.css'
 
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <SurveyContainer />,
+	},
+	{
+		path: '/survey',
+		element: <SurveyContainer />,
+	},
+	{
+		path: '/profile',
+		element: <Profile />,
+	},
+	{
+		path: '/statistics',
+		element: <Statistics />,
+	},
+	{
+		path: '/statistics/general-info',
+		element: <GeneralInfo />,
+	},
+	{
+		path: '/statistics/profiles',
+		element: <Profiles />,
+	},
+	{
+		path: '/statistics/analytics',
+		element: <Analytics />,
+	},
+])
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+	<React.StrictMode>
+		<Layout role={true}>
+			<RouterProvider router={router} />
+		</Layout>
+	</React.StrictMode>
 )

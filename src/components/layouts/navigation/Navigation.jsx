@@ -1,12 +1,11 @@
-import React from 'react'
 import MenuContainer from './MenuContainer/MenuContainer'
 import styles from './Navigation.module.css'
 
-const Navigation = () => {
+const Navigation = ({ role }) => {
 	return (
 		<div className={styles.navigation}>
 			<div className={styles.logo}>High five</div>
-			<MenuContainer />
+			<MenuContainer role={role} />
 		</div>
 	)
 }

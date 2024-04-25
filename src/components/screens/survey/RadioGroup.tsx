@@ -1,14 +1,13 @@
 import { Radio, Space } from 'antd'
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import styles from './Survey.module.css'
 import './radioStyle.css'
+import { IRadio } from './types/IRadio'
 
-const RadioGroup = ({
+const RadioGroup: FC<IRadio> = ({
 	setSelectedButtons,
-	selectedButtons,
 	questId,
 	optionsArr,
-	answer,
 	setAnswer,
 }) => {
 	const [value, setValue] = useState(null)

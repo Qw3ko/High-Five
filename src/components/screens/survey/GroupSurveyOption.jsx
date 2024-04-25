@@ -1,5 +1,4 @@
 import RadioGroup from './RadioGroup'
-import styles from './Survey.module.css'
 
 const GroupSurveyOption = ({
 	options,
