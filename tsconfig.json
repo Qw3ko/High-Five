@@ -29,6 +29,6 @@
 			"@/store/*": ["store/*"]
 		}
 	},
-	"include": ["vite.config.ts", "**/*.ts", "**/*.tsx"],
+	"include": ["vite.config.ts", "**/*.ts", "**/*.tsx", "src/components/screens/profile/Schedule/PopupMenu.jsx"],
 	"exclude": ["node_modules"]
 }

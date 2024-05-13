@@ -13,38 +13,35 @@ import './index.css'
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <SurveyContainer />,
-	},
-	{
-		path: '/survey',
-		element: <SurveyContainer />,
-	},
-	{
-		path: '/profile',
-		element: <Profile />,
-	},
-	{
-		path: '/statistics',
-		element: <Statistics />,
-	},
-	{
-		path: '/statistics/general-info',
-		element: <GeneralInfo />,
-	},
-	{
-		path: '/statistics/profiles',
-		element: <Profiles />,
-	},
-	{
-		path: '/statistics/analytics',
-		element: <Analytics />,
+		element: <Layout role={true} />,
+		children: [
+			{ path: '/survey', element: <SurveyContainer /> },
+			{
+				path: '/profile',
+				element: <Profile />,
+			},
+			{
+				path: '/statistics',
+				element: <Statistics />,
+			},
+			{
+				path: '/statistics/general-info',
+				element: <GeneralInfo />,
+			},
+			{
+				path: '/statistics/profiles',
+				element: <Profiles />,
+			},
+			{
+				path: '/statistics/analytics',
+				element: <Analytics />,
+			},
+		],
 	},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
-		<Layout role={true}>
-			<RouterProvider router={router} />
-		</Layout>
+		<RouterProvider router={router} />
 	</React.StrictMode>
 )
