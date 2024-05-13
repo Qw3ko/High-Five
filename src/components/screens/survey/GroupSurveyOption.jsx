@@ -3,7 +3,7 @@ import RadioGroup from './RadioGroup'
 const GroupSurveyOption = ({
 	options,
 	questId,
-	keyGroup,
+	// keyGroup,
 	answer,
 	setAnswer,
 	selectedButtons,
@@ -25,6 +25,8 @@ const GroupSurveyOption = ({
 				setSelectedButtons={setSelectedButtons}
 				answer={answer}
 				setAnswer={setAnswer}
+				selectedButtons={selectedButtons}
+
 			/>
 		</div>
 	)
