@@ -1,6 +1,7 @@
 import { FC } from 'react'
-import styles from '../Profile.module.css'
 import { SlArrowRight } from 'react-icons/sl'
+import styles from '../Profile.module.css'
+import PopupMenuUsers from './PopupMenuUsers'
 
 const Users: FC = () => {
 	return (
@@ -19,7 +20,7 @@ const Users: FC = () => {
 						<div className={styles.userNewMeeting}>
 							<div className={styles.icon}></div>
 						</div>
-						<div className={styles.userChat}>Встреча</div>
+						<PopupMenuUsers />
 						<div className={styles.userArrow}>
 							<SlArrowRight width={12.67} height={12.67} />
 						</div>
@@ -37,7 +38,7 @@ const Users: FC = () => {
 						<div className={styles.userNewMeeting}>
 							<div className={styles.icon}></div>
 						</div>
-						<div className={styles.userChat}>Встреча</div>
+						<PopupMenuUsers />
 						<div className={styles.userArrow}>
 							<SlArrowRight width={12.67} height={12.67} />
 						</div>
@@ -55,7 +56,7 @@ const Users: FC = () => {
 						<div className={styles.userNewMeeting}>
 							<div className={styles.icon}></div>
 						</div>
-						<div className={styles.userChat}>Встреча</div>
+						<PopupMenuUsers />
 						<div className={styles.userArrow}>
 							<SlArrowRight width={12.67} height={12.67} />
 						</div>
@@ -73,7 +74,7 @@ const Users: FC = () => {
 						<div className={styles.userNewMeeting}>
 							<div className={styles.icon}></div>
 						</div>
-						<div className={styles.userChat}>Встреча</div>
+						<PopupMenuUsers />
 						<div className={styles.userArrow}>
 							<SlArrowRight width={12.67} height={12.67} />
 						</div>

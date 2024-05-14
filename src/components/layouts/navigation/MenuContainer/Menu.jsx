@@ -1,3 +1,13 @@
+import recommendationLogo from '../../../../assets/icons/check.svg'
+import chatLogo from '../../../../assets/icons/group.svg'
+import helpLogo from '../../../../assets/icons/help.svg'
+import historyLogo from '../../../../assets/icons/history.svg'
+import homeLogo from '../../../../assets/icons/home.svg'
+import companyLogo from '../../../../assets/icons/people.svg'
+import statisticsLogo from '../../../../assets/icons/pie-chart.svg'
+import surveyLogo from '../../../../assets/icons/report.svg'
+import settingsLogo from '../../../../assets/icons/settings.svg'
+import templatesLogo from '../../../../assets/icons/template.svg'
 import styles from './Menu.module.css'
 import MenuItem from './MenuItem'
 
@@ -5,40 +15,40 @@ const Menu = ({ role }) => {
 	return (
 		<div className={styles.menu}>
 			<ul className={styles.ul}>
-				<MenuItem title={'Профиль'} icon={'PiHouseBold'} link={'/profile'} />
+				<MenuItem title={'Профиль'} icon={homeLogo} link={'/profile'} />
 				{role === true && (
 					<MenuItem
 						style={styles.inactive}
 						title={'Компания'}
-						icon={'PiUserBold'}
+						icon={companyLogo}
 						link={'/*'}
 					/>
 				)}
-				<MenuItem title={'Опросы'} icon={'PiClipboardText'} link={'/survey'} />
+				<MenuItem title={'Опросы'} icon={surveyLogo} link={'/survey'} />
 				{role === true && (
 					<MenuItem
 						style={styles.inactive}
 						title={'Шаблоны'}
-						icon={'PiListBulletsBold'}
+						icon={templatesLogo}
 						link={'/*'}
 					/>
 				)}
 				<MenuItem
 					style={styles.inactive}
 					title={'Рекомендации'}
-					icon={'PiCheckCircle'}
+					icon={recommendationLogo}
 					link={'/*'}
 				/>
 				<MenuItem
 					style={styles.inactive}
 					title={'Чат'}
-					icon={'PiChatTeardropDotsThin'}
+					icon={chatLogo}
 					link={'/*'}
 				/>
 				{role === true && (
 					<MenuItem
 						title={'Отчеты'}
-						icon={'PiChartPieSlice'}
+						icon={statisticsLogo}
 						link={'/statistics'}
 					/>
 				)}
@@ -46,20 +56,20 @@ const Menu = ({ role }) => {
 					<MenuItem
 						style={styles.inactive}
 						title={'История'}
-						icon={'PiSkipBackLight'}
+						icon={historyLogo}
 						link={'/*'}
 					/>
 				)}
 				<MenuItem
 					style={styles.inactive}
 					title={'Настройки'}
-					icon={'PiGearSix'}
+					icon={settingsLogo}
 					link={'/*'}
 				/>
 				<MenuItem
 					style={styles.inactive}
 					title={'Помощь'}
-					icon={'PiQuestion'}
+					icon={helpLogo}
 					link={'/*'}
 				/>
 			</ul>

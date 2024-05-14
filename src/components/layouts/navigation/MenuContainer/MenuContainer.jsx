@@ -1,3 +1,4 @@
+import exitIcon from '../../../../assets/icons/exit.svg'
 import Menu from './Menu'
 import styles from './Menu.module.css'
 import MenuItem from './MenuItem'
@@ -15,7 +16,7 @@ const MenuContainer = ({ role }) => {
 				</div>
 			</div>
 			<div className={styles.exitButton}>
-				<MenuItem title={'Выйти'} icon={'PiArrowSquareLeftBold'} />
+				<MenuItem title={'Выйти'} icon={exitIcon} />
 			</div>
 		</>
 	)

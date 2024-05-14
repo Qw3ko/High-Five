@@ -1,6 +1,5 @@
 import cn from 'classnames'
 import { NavLink, useLocation } from 'react-router-dom'
-import MaterialIcon from '../../../ui/MaterialIcon'
 import styles from './Menu.module.css'
 
 const MenuItem = ({ title, icon, style = '', link }) => {
@@ -12,7 +11,7 @@ const MenuItem = ({ title, icon, style = '', link }) => {
 			})}
 		>
 			<NavLink className={style} to={link}>
-				<MaterialIcon icon={icon} />
+				<img src={icon} width={25} height={25} />
 				<span>{title}</span>
 			</NavLink>
 		</li>

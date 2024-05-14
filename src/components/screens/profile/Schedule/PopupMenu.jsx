@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import Popup from 'reactjs-popup'
+import closeBtn from '../../../../assets/icons/cross.svg'
+import addBtnIcon from '../../../../assets/icons/plus.svg'
 import './PopupMenu.module.css'
 import styles from './PopupMenu.module.css'
 
@@ -23,13 +25,21 @@ const PopupMenu = ({ onChange }) => {
 	}
 
 	return (
-		<Popup trigger={<div className={styles.addBtnIcon}></div>} modal nested>
+		<Popup
+			trigger={
+				<button className={styles.addBtn}>
+					<img className={styles.addBtnIcon} src={addBtnIcon} />
+				</button>
+			}
+			modal
+			nested
+		>
 			{close => (
 				<div className={styles.modalContainer}>
 					<div className={styles.modalHeaderContainer}>
 						<div className={styles.modalHeading}>Добавить задачу</div>
 						<button className={styles.closeBtn} onClick={close}>
-							<div className={styles.addBtnIcon}></div>
+							<img width={20} height={20} src={closeBtn} />
 						</button>
 					</div>
 					<div className={styles.modalContent}>

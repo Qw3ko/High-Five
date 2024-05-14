@@ -19,9 +19,7 @@ const Schedule: FC = () => {
 		<div className={styles.schedule}>
 			<div className={styles.scheduleDateContainer}>
 				<div className={styles.scheduleDate}>{getCurrentDate()}</div>
-				<button className={styles.addBtn}>
-					<PopupMenu onChange={addTask} />
-				</button>
+				<PopupMenu onChange={addTask} />
 			</div>
 			<div className={styles.scheduleList}>
 				{data.length > 0 ? (

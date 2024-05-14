@@ -68,7 +68,7 @@
 }
 
 .addBtnIcon {
-	background-image: url('../../../assets/icons/Plus.svg');
+	background-image: url('../../../assets/icons/plus.svg');
 	background-size: cover;
 	margin-left: 23%;
 	width: 25px;
@@ -239,11 +239,16 @@
 	align-content: center;
 	background-color: #e2dfed33;
 	border: 1px solid #e2dfed;
+	transition: background-color 0.2s ease-in-out;
 	border-radius: 17.78px;
+	&:hover {
+		background-color: #e2dfed;
+		cursor: pointer;
+	}
 }
 
 .icon {
-	background-image: url('../../../assets/icons/Group.svg');
+	background-image: url('../../../assets/icons/group.svg');
 	background-size: cover;
 	margin-left: 10px;
 	width: 15px;
@@ -256,10 +261,15 @@
 	align-content: center;
 	background-color: #e2dfed33;
 	border: 1px solid #e2dfed;
+	transition: background-color 0.2s ease-in-out;
 	border-radius: 17.78px;
 	> svg {
 		margin-left: 10px;
 		margin-top: 5px;
+	}
+	&:hover {
+		background-color: #e2dfed;
+		cursor: pointer;
 	}
 }
 
@@ -269,6 +279,7 @@
 	background-color: #e2dfed33;
 	border: 1px solid #e2dfed;
 	border-radius: 26.67px;
+	transition: background-color 0.2s ease-in-out;
 	align-content: center;
 	color: #474168;
 	font-family: Raleway;
@@ -276,6 +287,10 @@
 	font-weight: 500;
 	line-height: 12.52px;
 	text-align: center;
+	&:hover {
+		background-color: #e2dfed;
+		cursor: pointer;
+	}
 }
 
 .userArrow {
