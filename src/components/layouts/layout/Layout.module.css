@@ -1,11 +1,7 @@
 .layout {
 	position: relative;
-	display: flex;
-	flex-direction: row;
-
 	> div:first-child {
-		/* position: fixed; */
-		flex: 2;
+		position: fixed;
 		top: 0px;
 		bottom: 0px;
 		left: 0px;
@@ -16,12 +12,10 @@
 	}
 }
 
-.containeer__survey{
+.containeer__survey {
 	flex: 10;
 }
 
 .center {
-	/* margin: 8% 0 0 18%; */
-	flex: 2;
+	margin: 8% 0 0 18%;
 }
-

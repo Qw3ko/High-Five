@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 import quizData from './Questions/questions.json'
 import styles from './Survey.module.css'
 import SurveyHeading from './SurveyHeading'
@@ -12,106 +12,114 @@ const SurveyContainer: FC = () => {
 	const [finalAnswer, setFinalAnswer] = useState({})
 
 	const keys = Object.keys(data)
-	const numberOfFields = keys.length
 
 	const [selectedButtons, setSelectedButtons] = useState(() => {
 		// localStorage.setItem('selectedButton', 'nnnnnnnnnnnnnnnnnnnnnnn')          //  <------ сброс localStorage
 
 		const storedButton = localStorage.getItem('selectedButton')
-		if (storedButton) {                                                                         // закомментить, чтобы работать без LocalStorage
-		return Array.from(storedButton)																// закомментить, чтобы работать без LocalStorage
-		} else {																					// закомментить, чтобы работать без LocalStorage
-		const numberOfFields = keys.length	
-		localStorage.setItem('answer', 'nnnnnnnnnnnnnnnnnnnnnnn')													
-		return new Array(numberOfFields + 1).fill('n')
-		}																							// закомментить, чтобы работать без LocalStorage
+		if (storedButton !== null) {
+			// закомментить, чтобы работать без LocalStorage
+			return Array.from(storedButton) // закомментить, чтобы работать без LocalStorage
+		} else {
+			// закомментить, чтобы работать без LocalStorage
+			const numberOfFields = keys.length
+			localStorage.setItem('answer', 'nnnnnnnnnnnnnnnnnnnnnnn')
+			return new Array(numberOfFields + 1).fill('n')
+		} // закомментить, чтобы работать без LocalStorage
 	})
-
 
 	const [answer, setAnswer] = useState(() => {
-		const storedAnswer = localStorage.getItem('answer');
-		const parsedAnswer = Object.keys((JSON.parse(storedAnswer)).length !== 0) ? JSON.parse(storedAnswer) : 0;
+		const storedAnswer = localStorage.getItem('answer')
+		const parsedAnswer: object = {}
+		if (storedAnswer !== null) {
+			const parsedAnswer = Object.keys(JSON.parse(storedAnswer).length !== 0)
+				? JSON.parse(storedAnswer)
+				: {}
+		} else {
+			const parsedAnswer = {}
+		}
 		// console.log(storedAnswer)
-		if(!parsedAnswer){
-			console.log("sheet, yes")
-		const answerMap = new Map(Object.entries(data))
-		answerMap.forEach((value, key) => {
-			const type = parseInt(value.trend)
-			const points = 0
-			answerMap.set(key, { type, points })
-		})
+		if (!parsedAnswer) {
+			console.log('sheet, yes')
+			const answerMap = new Map(Object.entries(data))
+			answerMap.forEach((value, key) => {
+				const type = parseInt(value.trend)
+				const points = 0
+				answerMap.set(key, { type, points })
+			})
 
-		let objAnsw = {}
-		for(let item of answerMap.keys()){
-			objAnsw[item] = answerMap.get(item)
-		}
+			const objAnswer: { [key: string]: object } = {}
+			for (const item of answerMap.keys()) {
+				objAnswer[item] = answerMap.get(item)
+			}
 
-		console.log(objAnsw)
-		console.log(JSON.stringify(objAnsw))
-		localStorage.setItem('answer', JSON.stringify(objAnsw))
-		console.log(localStorage)
-		return answerMap
-	} else {
-		let parsedMap = new Map()
-		let back = parsedAnswer
-		for(let prop in back){
-			parsedMap.set(prop, back[prop])
+			console.log(objAnswer)
+			console.log(JSON.stringify(objAnswer))
+			localStorage.setItem('answer', JSON.stringify(objAnswer))
+			console.log(localStorage)
+			return answerMap
+		} else {
+			const parsedMap = new Map()
+			const back = parsedAnswer as { [key: string]: string }
+			for (const prop in back) {
+				parsedMap.set(prop, back[prop])
+			}
+			return parsedMap
 		}
-		return parsedMap
-	}
 	})
-	console.log("answer: ", answer)
+	console.log('answer: ', answer)
 
 	const initialAnswer = new Map(Object.entries(data))
 	initialAnswer.forEach((value, key) => {
 		const type = parseInt(value.trend)
 		const points = 0
-		initialAnswer.set(key, { type, points })})
+		initialAnswer.set(key, { type, points })
+	})
 
-	let initialObjAnswer = {}
-		for(let item of initialAnswer.keys()){
-			initialObjAnswer[item] = initialAnswer.get(item)
-		}
-
- 
-	
+	const initialObjAnswer: { [key: string]: object } = {}
+	for (const item of initialAnswer.keys()) {
+		initialObjAnswer[item] = initialAnswer.get(item)
+	}
 
 	// useEffect(()=>{}, [answer])
 
 	useEffect(() => {
-		if(selectedButtons !== Array.from('nnnnnnnnnnnnnnnnnnnnnnn')){
-			console.log("selected button [selectedButton]")
-			localStorage.setItem('selectedButton', (selectedButtons.map(item => {if(item !== 'n') return`${item}`; else return "n"})).join(''))
+		if (selectedButtons !== Array.from('nnnnnnnnnnnnnnnnnnnnnnn')) {
+			console.log('selected button [selectedButton]')
+			localStorage.setItem(
+				'selectedButton',
+				selectedButtons
+					.map(item => {
+						if (item !== 'n') return `${item}`
+						else return 'n'
+					})
+					.join('')
+			)
 		}
 		console.log(localStorage)
-	}, [selectedButtons]) 
-
+	}, [selectedButtons])
 
 	useEffect(() => {
-
-		let objAnsw = {}
-		for(let item of answer.keys()){
-			objAnsw[item] = answer.get(item)
+		const objAnswer: { [key: string]: { type: number; points: number } } = {}
+		for (const item of answer.keys()) {
+			objAnswer[item] = answer.get(item)
 		}
 
-		console.log("initialMap: ", initialObjAnswer)
-		if(JSON.stringify(objAnsw) !== JSON.stringify(initialObjAnswer)){
-			console.log("yes")
-			localStorage.setItem('answer', JSON.stringify(objAnsw))
-			console.log("selected button [answer]")
+		console.log('initialMap: ', initialObjAnswer)
+		if (JSON.stringify(objAnswer) !== JSON.stringify(initialObjAnswer)) {
+			console.log('yes')
+			localStorage.setItem('answer', JSON.stringify(objAnswer))
+			console.log('selected button [answer]')
 			console.log(localStorage)
 		}
-
 	}, [answer])
 
-
-	useEffect(()=>{
+	useEffect(() => {
 		fetch('', {
-			method: "GET",
+			method: 'GET',
 			headers: {
-				'Content-Type': 'application/json;charset=utf-8'
+				'Content-Type': 'application/json;charset=utf-8',
 			},
-
 		})
 	}, [])
 
@@ -162,7 +170,7 @@ const SurveyContainer: FC = () => {
 		return <div>Loading...</div>
 	} else {
 		return (
-			<div className="containeer__survey">
+			<div className='containeer__survey'>
 				<SurveyHeading />
 				<div className={styles.surveyContainer}>
 					{!isResult && (

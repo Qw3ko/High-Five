@@ -79,6 +79,18 @@
 	margin-top: 40px;
 }
 
+.noTaskMessage {
+	font-family: Raleway;
+	margin-left: 10px;
+	color: #474168;
+	margin-top: 60%;
+	margin-left: 20px;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 18.78px;
+	opacity: 0.4;
+}
+
 .scheduleItem {
 	display: flex;
 	flex-direction: column;
@@ -319,6 +331,7 @@
 	width: 251px;
 	height: 200px;
 	background-image: url('../../../../public/image.jpg');
+	clip-path: polygon(0 29%, 77% 14%, 100% 100%, 15% 90%);
 	background-size: cover;
 	border-radius: 40px;
 }
