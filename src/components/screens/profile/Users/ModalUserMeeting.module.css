@@ -1,11 +1,19 @@
 .modalContainer {
+	position: absolute;
+	top: 50%;
+	left: 50%;
 	width: 750px;
 	height: 300px;
 	padding: 25px;
-	border: 2px solid #e2dfed;
-	background-color: #e2dfed33;
+	transform: translate(-50%, -50%);
 	backdrop-filter: blur(40px);
+	border: 2px solid #e2dfed;
+	background-color: #e2dfed2d;
 	border-radius: 20px;
+}
+
+.customBackdrop {
+	background-color: #ffffff !important;
 }
 
 .modalHeaderContainer {

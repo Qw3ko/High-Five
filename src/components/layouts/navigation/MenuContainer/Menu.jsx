@@ -18,7 +18,7 @@ const Menu = ({ role }) => {
 				<MenuItem title={'Профиль'} icon={homeLogo} link={'/profile'} />
 				{role === true && (
 					<MenuItem
-						style={styles.inactive}
+						style={styles.inactivePage}
 						title={'Компания'}
 						icon={companyLogo}
 						link={'/*'}
@@ -27,20 +27,20 @@ const Menu = ({ role }) => {
 				<MenuItem title={'Опросы'} icon={surveyLogo} link={'/survey'} />
 				{role === true && (
 					<MenuItem
-						style={styles.inactive}
+						style={styles.inactivePage}
 						title={'Шаблоны'}
 						icon={templatesLogo}
 						link={'/*'}
 					/>
 				)}
 				<MenuItem
-					style={styles.inactive}
+					style={styles.inactivePage}
 					title={'Рекомендации'}
 					icon={recommendationLogo}
 					link={'/*'}
 				/>
 				<MenuItem
-					style={styles.inactive}
+					style={styles.inactivePage}
 					title={'Чат'}
 					icon={chatLogo}
 					link={'/*'}
@@ -54,20 +54,20 @@ const Menu = ({ role }) => {
 				)}
 				{role === true && (
 					<MenuItem
-						style={styles.inactive}
+						style={styles.inactivePage}
 						title={'История'}
 						icon={historyLogo}
 						link={'/*'}
 					/>
 				)}
 				<MenuItem
-					style={styles.inactive}
+					style={styles.inactivePage}
 					title={'Настройки'}
 					icon={settingsLogo}
 					link={'/*'}
 				/>
 				<MenuItem
-					style={styles.inactive}
+					style={styles.inactivePage}
 					title={'Помощь'}
 					icon={helpLogo}
 					link={'/*'}

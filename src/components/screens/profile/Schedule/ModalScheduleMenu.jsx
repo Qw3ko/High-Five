@@ -1,11 +1,13 @@
+import { Modal } from '@mui/material'
 import { useState } from 'react'
-import Popup from 'reactjs-popup'
 import closeBtn from '../../../../assets/icons/cross.svg'
 import addBtnIcon from '../../../../assets/icons/plus.svg'
-import './PopupMenu.module.css'
-import styles from './PopupMenu.module.css'
+import styles from './ModalScheduleMenu.module.css'
 
-const PopupMenu = ({ onChange }) => {
+const ModalScheduleMenu = ({ onChange }) => {
+	const [open, setOpen] = useState(false)
+	const handleOpen = () => setOpen(true)
+	const handleClose = () => setOpen(false)
 	const [time, setTime] = useState('')
 	const [date, setDate] = useState('')
 	const [text, setText] = useState('')
@@ -25,20 +27,23 @@ const PopupMenu = ({ onChange }) => {
 	}
 
 	return (
-		<Popup
-			trigger={
-				<button className={styles.addBtn}>
-					<img className={styles.addBtnIcon} src={addBtnIcon} />
-				</button>
-			}
-			modal
-			nested
-		>
-			{close => (
+		<>
+			<button onClick={handleOpen} className={styles.addBtn}>
+				<img className={styles.addBtnIcon} src={addBtnIcon} />
+			</button>
+			<Modal
+				sx={{
+					'& div.MuiModal-backdrop': {
+						backgroundColor: 'rgba(255, 255, 255, 0.5)',
+					},
+				}}
+				open={open}
+				onClose={handleClose}
+			>
 				<div className={styles.modalContainer}>
 					<div className={styles.modalHeaderContainer}>
 						<div className={styles.modalHeading}>Добавить задачу</div>
-						<button className={styles.closeBtn} onClick={close}>
+						<button className={styles.closeBtn} onClick={handleClose}>
 							<img width={20} height={20} src={closeBtn} />
 						</button>
 					</div>
@@ -79,7 +84,7 @@ const PopupMenu = ({ onChange }) => {
 									type='button'
 									onClick={() => {
 										handleSubmit()
-										close()
+										handleClose()
 									}}
 								>
 									Создать
@@ -88,9 +93,9 @@ const PopupMenu = ({ onChange }) => {
 						</form>
 					</div>
 				</div>
-			)}
-		</Popup>
+			</Modal>
+		</>
 	)
 }
 
-export default PopupMenu
+export default ModalScheduleMenu

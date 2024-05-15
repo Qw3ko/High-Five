@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { getCurrentDate } from '../../../../utils/getCurrentDate'
 import styles from '../Profile.module.css'
-import PopupMenu from './PopupMenu'
+import ModalScheduleMenu from './ModalScheduleMenu'
 
 interface ITask {
 	id: number
@@ -19,7 +19,7 @@ const Schedule: FC = () => {
 		<div className={styles.schedule}>
 			<div className={styles.scheduleDateContainer}>
 				<div className={styles.scheduleDate}>{getCurrentDate()}</div>
-				<PopupMenu onChange={addTask} />
+				<ModalScheduleMenu onChange={addTask} />
 			</div>
 			<div className={styles.scheduleList}>
 				{data.length > 0 ? (

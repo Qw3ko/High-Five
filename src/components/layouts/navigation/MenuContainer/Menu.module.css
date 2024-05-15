@@ -31,18 +31,17 @@
 			background-color: #e2dfed;
 			border-radius: 40px;
 		}
-		&:active {
-			background-color: #e2dfed;
-			border-radius: 40px;
-		}
 	}
 }
 
-.inactive {
-	color: #47416899 !important;
-	&:hover {
-		cursor: no-drop;
-	}
+.activeTab {
+	background-color: #e2dfed;
+}
+
+.inactivePage {
+	opacity: 0.4;
+	pointer-events: none;
+	background-color: white;
 }
 
 .profileInfo {

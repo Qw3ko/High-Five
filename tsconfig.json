@@ -14,7 +14,7 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
-		"baseUrl": "./app/",
+		"baseUrl": "./src/",
 		"paths": {
 			"@/components/*": ["components/*"],
 			"@/ui/*": ["components/ui/*"],
@@ -29,6 +29,6 @@
 			"@/store/*": ["store/*"]
 		}
 	},
-	"include": ["vite.config.ts", "**/*.ts", "**/*.tsx", "src/components/screens/profile/Schedule/PopupMenu.jsx"],
+	"include": ["vite.config.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }

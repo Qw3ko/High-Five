@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { SlArrowRight } from 'react-icons/sl'
 import styles from '../Profile.module.css'
-import PopupMenuUsers from './PopupMenuUsers'
+import ModalUserMeeting from './ModalUserMeeting'
 
 const Users: FC = () => {
 	return (
@@ -20,7 +20,7 @@ const Users: FC = () => {
 						<div className={styles.userNewMeeting}>
 							<div className={styles.icon}></div>
 						</div>
-						<PopupMenuUsers />
+						<ModalUserMeeting />
 						<div className={styles.userArrow}>
 							<SlArrowRight width={12.67} height={12.67} />
 						</div>
@@ -38,7 +38,7 @@ const Users: FC = () => {
 						<div className={styles.userNewMeeting}>
 							<div className={styles.icon}></div>
 						</div>
-						<PopupMenuUsers />
+						<ModalUserMeeting />
 						<div className={styles.userArrow}>
 							<SlArrowRight width={12.67} height={12.67} />
 						</div>
@@ -56,7 +56,7 @@ const Users: FC = () => {
 						<div className={styles.userNewMeeting}>
 							<div className={styles.icon}></div>
 						</div>
-						<PopupMenuUsers />
+						<ModalUserMeeting />
 						<div className={styles.userArrow}>
 							<SlArrowRight width={12.67} height={12.67} />
 						</div>
@@ -74,7 +74,7 @@ const Users: FC = () => {
 						<div className={styles.userNewMeeting}>
 							<div className={styles.icon}></div>
 						</div>
-						<PopupMenuUsers />
+						<ModalUserMeeting />
 						<div className={styles.userArrow}>
 							<SlArrowRight width={12.67} height={12.67} />
 						</div>

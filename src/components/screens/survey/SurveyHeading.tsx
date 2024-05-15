@@ -1,8 +1,8 @@
-import React from 'react'
+import { FC } from 'react'
 import DisabledButton from '../../ui/Button/Disabled button/DisabledButton'
 import styles from './SurveyHeading.module.css'
 
-const SurveyHeading = () => {
+const SurveyHeading: FC = () => {
 	return (
 		<>
 			<div className={styles.container}>

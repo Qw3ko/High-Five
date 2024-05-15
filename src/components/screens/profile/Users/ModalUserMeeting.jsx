@@ -1,20 +1,32 @@
-import Popup from 'reactjs-popup'
+import { Modal } from '@mui/material'
+import { useState } from 'react'
 import closeBtn from '../../../../assets/icons/cross.svg'
 import btnStyles from '../Profile.module.css'
-import styles from './PopupMenu.module.css'
+import './ModalUserMeeting.module.css'
+import styles from './ModalUserMeeting.module.css'
 
-const PopupMenuUsers = () => {
+const ModalUserMeeting = () => {
+	const [open, setOpen] = useState(false)
+	const handleOpen = () => setOpen(true)
+	const handleClose = () => setOpen(false)
 	return (
-		<Popup
-			trigger={<button className={btnStyles.userChat}>Встреча</button>}
-			modal
-			nested
-		>
-			{close => (
+		<>
+			<button className={btnStyles.userChat} onClick={handleOpen}>
+				Встреча
+			</button>
+			<Modal
+				sx={{
+					'& div.MuiModal-backdrop': {
+						backgroundColor: 'rgba(255, 255, 255, 0.5)',
+					},
+				}}
+				open={open}
+				onClose={handleClose}
+			>
 				<div className={styles.modalContainer}>
 					<div className={styles.modalHeaderContainer}>
 						<div className={styles.modalHeading}>Предложить встречу</div>
-						<button className={styles.closeBtn} onClick={close}>
+						<button className={styles.closeBtn} onClick={handleClose}>
 							<img width={20} height={20} src={closeBtn} />
 						</button>
 					</div>
@@ -40,7 +52,7 @@ const PopupMenuUsers = () => {
 									className={styles.btnCreate}
 									type='button'
 									onClick={() => {
-										close()
+										handleClose()
 									}}
 								>
 									Отправить
@@ -49,9 +61,9 @@ const PopupMenuUsers = () => {
 						</form>
 					</div>
 				</div>
-			)}
-		</Popup>
+			</Modal>
+		</>
 	)
 }
 
-export default PopupMenuUsers
+export default ModalUserMeeting

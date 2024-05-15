@@ -7,10 +7,11 @@ const MenuItem = ({ title, icon, style = '', link }) => {
 	return (
 		<li
 			className={cn({
-				[styles.active]: location === link,
+				[styles.activeTab]: location.pathname === link,
+				[styles.inactivePage]: style.length > 0,
 			})}
 		>
-			<NavLink className={style} to={link}>
+			<NavLink to={link}>
 				<img src={icon} width={25} height={25} />
 				<span>{title}</span>
 			</NavLink>

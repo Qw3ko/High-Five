@@ -25,8 +25,6 @@ const GroupSurveyOption = ({
 				setSelectedButtons={setSelectedButtons}
 				answer={answer}
 				setAnswer={setAnswer}
-				selectedButtons={selectedButtons}
-
 			/>
 		</div>
 	)
