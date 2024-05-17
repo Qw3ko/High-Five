@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import { FC, useState } from 'react'
 import closeBtn from '../../../../assets/icons/cross.svg'
 import { getCurrentDate } from '../../../../utils/getCurrentDate'
@@ -14,19 +15,34 @@ export interface ITask {
 }
 
 const Schedule: FC = () => {
+	const [style, setStyle] = useState('headerNotificationContainer')
 	const [data, setData] = useState<ITask[]>([])
 	const [notificationData, setNotificationData] = useState<ITask[]>([])
 	const addTask = (data: ITask) => {
 		setData((prevData) => [...prevData, data])
 		setNotificationData([data])
+		if (style !== 'headerNotificationContainer')
+			setStyle('headerNotificationContainer')
+	}
+	const removeNotification = () => {
+		setStyle('removed')
 	}
 
 	return (
 		<>
 			{getDiffTime(notificationData) && notificationData[0].isChecked && (
-				<div className={styles.headerNotificationContainer}>
+				<div
+					className={cn({
+						[styles.headerNotificationContainer]:
+							style === 'headerNotificationContainer',
+						[styles.removed]: style === 'removed',
+					})}
+				>
 					<div className={styles.headerNotification}>
-						<button className={styles.closeBtnNotification}>
+						<button
+							className={styles.closeBtnNotification}
+							onClick={removeNotification}
+						>
 							<img src={closeBtn} width={7} height={7} />
 						</button>
 						<span>
