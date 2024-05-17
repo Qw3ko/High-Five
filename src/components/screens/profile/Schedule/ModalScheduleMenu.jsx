@@ -14,14 +14,16 @@ const ModalScheduleMenu = ({ onChange }) => {
 	const [id, setId] = useState(0)
 
 	const handleSubmit = () => {
+		const checkbox = document.querySelector('[type="checkbox"]')
 		onChange({
 			id: id,
 			time: time,
 			date: date,
 			text: text,
+			isChecked: checkbox.checked,
 		})
 		setTime('')
-		setDate('')
+		setDate()
 		setText('')
 		setId(id + 1)
 	}

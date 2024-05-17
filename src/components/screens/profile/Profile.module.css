@@ -18,6 +18,56 @@
 	gap: 45px;
 }
 
+.headerNotificationContainer {
+	display: flex;
+	flex-wrap: wrap;
+	position: absolute;
+	align-content: center;
+	vertical-align: bottom;
+	width: fit-content;
+	padding: 0px 10px;
+	background-color: #E2DFED33;
+	top: -190px;
+	height: 30px;
+	border: 2px solid #e2dfed;
+	border-radius: 40px;
+}
+
+.headerNotification {
+	font-family: Raleway;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 18.78px;
+	text-align: left;
+	color: #474168;
+	> span {
+		position: relative;
+		width: fit-content;
+		top: 5px;
+	}
+}
+
+.closeBtnNotification {
+	position: relative;
+	width: 20px;
+	height: 20px;
+	padding: 6.5px;
+	margin-right: 10px;
+	border-radius: 13.68px;
+	transition: background-color 0.2s ease-in-out;
+	border: 0.34px;
+	opacity: 0px;
+	> img {
+		position: absolute;
+		margin-top: -3px;
+		margin-left: -3px;
+	}
+	&:hover {
+		cursor: pointer;
+		background-color: #e2dfed99;
+	}
+}
+
 .scheduleContainer {
 	width: 267px;
 	height: 450px;
@@ -29,13 +79,15 @@
 .schedule {
 	display: flex;
 	flex-direction: column;
+	position: relative;
 	padding-left: 20px;
 }
 
 .scheduleDateContainer {
 	display: flex;
+	position: fixed;
 	flex-direction: row;
-	width: 260px;
+	width: 230px;
 	height: 31px;
 	margin-top: 15px;
 	font-family: Raleway;
@@ -76,7 +128,12 @@
 }
 
 .scheduleList {
-	margin-top: 40px;
+	margin-top: 90px;
+	max-height: 350px;
+	overflow: auto;
+	&::-webkit-scrollbar {
+		width: 0;
+	}
 }
 
 .noTaskMessage {
@@ -98,15 +155,28 @@
 	margin-bottom: 20px;
 	border-left: 5px solid #e2dfed;
 	border-radius: 5px;
-	width: 227px;
+	width: 220px;
 	height: 42px;
 	&:hover {
 		background-color: #e2dfed66;
 		cursor: pointer;
 		border-radius: 0px 40px 40px 0px;
 	}
-	&:nth-child(3) {
-		border-left: 5px solid #474168;
+}
+
+.scheduleItemImportant {
+	display: flex;
+	flex-direction: column;
+	padding-top: 10px;
+	margin-bottom: 20px;
+	border-left: 5px solid #474168;
+	border-radius: 5px;
+	width: 227px;
+	height: 42px;
+	&:hover {
+		background-color: #e2dfed66;
+		cursor: pointer;
+		border-radius: 0px 40px 40px 0px;
 	}
 }
 
