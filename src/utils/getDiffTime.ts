@@ -22,6 +22,6 @@ export const getDiffTime = (data: ITask[]) => {
 		const diffHours = diff / (1000 * 60 * 60)
 		const diffRound = Math.round(diffHours)
 		const absHours = Math.abs(diffRound)
-		if (absHours <= 8) return true
+		if (absHours <= 8) return true && absHours
 	}
 }

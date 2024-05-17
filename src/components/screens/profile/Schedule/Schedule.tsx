@@ -20,12 +20,24 @@ const Schedule: FC = () => {
 	const [notificationData, setNotificationData] = useState<ITask[]>([])
 	const addTask = (data: ITask) => {
 		setData((prevData) => [...prevData, data])
-		setNotificationData([data])
-		if (style !== 'headerNotificationContainer')
-			setStyle('headerNotificationContainer')
+		if (data.isChecked) {
+			setNotificationData([data])
+			if (style !== 'headerNotificationContainer')
+				setStyle('headerNotificationContainer')
+		}
 	}
 	const removeNotification = () => {
 		setStyle('removed')
+	}
+
+	const hourWord = (data: ITask[]) => {
+		const result = getDiffTime(data)
+		console.log(result)
+		if (typeof result === 'number') {
+			if (result === 1) return 'час'
+			if ([5, 6, 7, 8].includes(result)) return 'часов'
+			return 'часа'
+		}
 	}
 
 	return (
@@ -48,7 +60,13 @@ const Schedule: FC = () => {
 						<span>
 							{notificationData.length > 0
 								? notificationData[0].isChecked
-									? notificationData[0].text
+									? notificationData[0].text +
+									  ' ' +
+									  'через' +
+									  ' ' +
+									  getDiffTime(notificationData) +
+									  ' ' +
+									  hourWord(notificationData)
 									: ''
 								: ''}
 						</span>
@@ -64,16 +82,19 @@ const Schedule: FC = () => {
 				<div className={styles.scheduleList}>
 					{data.length > 0 ? (
 						data.map((item) => (
-							<div
-								key={item.id}
-								className={
-									item.isChecked
-										? styles.scheduleItemImportant
-										: styles.scheduleItem
-								}
-							>
-								<div className={styles.scheduleItemName}>{item.text}</div>
-								<div className={styles.scheduleItemTime}>{item.time}</div>
+							<div key={item.id} className={styles.scheduleItem}>
+								<div
+									className={
+										item.isChecked
+											? styles.scheduleListBorderImportant
+											: styles.scheduleListBorder
+									}
+								>
+									<div className={styles.infoContainer}>
+										<div className={styles.scheduleItemName}>{item.text}</div>
+										<div className={styles.scheduleItemTime}>{item.time}</div>
+									</div>
+								</div>
 							</div>
 						))
 					) : (

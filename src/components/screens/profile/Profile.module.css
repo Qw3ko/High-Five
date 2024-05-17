@@ -26,7 +26,7 @@
 	vertical-align: bottom;
 	width: fit-content;
 	padding: 0px 10px;
-	background-color: #E2DFED33;
+	background-color: #e2dfed33;
 	top: -190px;
 	height: 30px;
 	border: 2px solid #e2dfed;
@@ -57,6 +57,7 @@
 	height: 20px;
 	padding: 6.5px;
 	margin-right: 10px;
+	margin-bottom: 5px;
 	border-radius: 13.68px;
 	transition: background-color 0.2s ease-in-out;
 	border: 0.34px;
@@ -155,9 +156,7 @@
 .scheduleItem {
 	display: flex;
 	flex-direction: column;
-	padding-top: 10px;
 	margin-bottom: 20px;
-	border-left: 5px solid #e2dfed;
 	border-radius: 5px;
 	width: 220px;
 	height: 42px;
@@ -168,24 +167,27 @@
 	}
 }
 
-.scheduleItemImportant {
-	display: flex;
-	flex-direction: column;
-	padding-top: 10px;
-	margin-bottom: 20px;
-	border-left: 5px solid #474168;
-	border-radius: 5px;
-	width: 227px;
-	height: 42px;
-	&:hover {
-		background-color: #e2dfed66;
-		cursor: pointer;
-		border-radius: 0px 40px 40px 0px;
-	}
+.infoContainer {
+	padding: 5px 5px;
+}
+
+.scheduleListBorderImportant {
+	height: 50px;
+	width: 5px;
+	background-color: #474168;
+	border-radius: 40px;
+}
+
+.scheduleListBorder {
+	height: 50px;
+	width: 5px;
+	background-color: #e2dfed;
+	border-radius: 40px;
 }
 
 .scheduleItemName {
 	font-family: Raleway;
+	width: 220px;
 	margin-left: 10px;
 	color: #474168;
 	font-weight: 400;
@@ -196,7 +198,6 @@
 .scheduleItemTime {
 	font-family: Raleway;
 	margin-left: 10px;
-	margin-top: 3px;
 	color: #474168;
 	font-weight: 400;
 	font-size: 14px;
