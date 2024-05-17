@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react'
+import Popup from './Popup/popup'
 import quizData from './Questions/questions.json'
 import styles from './Survey.module.css'
 import SurveyHeading from './SurveyHeading'
@@ -10,37 +11,30 @@ const data: object = quizData.questions
 const SurveyContainer: FC = () => {
 	const [isResult, setResult] = useState(false)
 	const [finalAnswer, setFinalAnswer] = useState({})
+	const [ModalNotAllAns, setModalNotAllAns] = useState(false)
 
 	const keys = Object.keys(data)
+	const numberOfFields = keys.length
 
 	const [selectedButtons, setSelectedButtons] = useState(() => {
 		// localStorage.setItem('selectedButton', 'nnnnnnnnnnnnnnnnnnnnnnn')          //  <------ сброс localStorage
 
 		const storedButton = localStorage.getItem('selectedButton')
-		if (storedButton !== null) {
+		if (storedButton) {
 			// закомментить, чтобы работать без LocalStorage
 			return Array.from(storedButton) // закомментить, чтобы работать без LocalStorage
 		} else {
 			// закомментить, чтобы работать без LocalStorage
 			const numberOfFields = keys.length
-			localStorage.setItem('answer', 'nnnnnnnnnnnnnnnnnnnnnnn')
+			localStorage.setItem('selectedButton', 'nnnnnnnnnnnnnnnnnnnnnnn')
 			return new Array(numberOfFields + 1).fill('n')
 		} // закомментить, чтобы работать без LocalStorage
 	})
 
 	const [answer, setAnswer] = useState(() => {
 		const storedAnswer = localStorage.getItem('answer')
-		const parsedAnswer: object = {}
-		if (storedAnswer !== null) {
-			const parsedAnswer = Object.keys(JSON.parse(storedAnswer).length !== 0)
-				? JSON.parse(storedAnswer)
-				: {}
-		} else {
-			const parsedAnswer = {}
-		}
-		// console.log(storedAnswer)
+		const parsedAnswer = storedAnswer !== null ? storedAnswer : 0
 		if (!parsedAnswer) {
-			console.log('sheet, yes')
 			const answerMap = new Map(Object.entries(data))
 			answerMap.forEach((value, key) => {
 				const type = parseInt(value.trend)
@@ -48,26 +42,21 @@ const SurveyContainer: FC = () => {
 				answerMap.set(key, { type, points })
 			})
 
-			const objAnswer: { [key: string]: object } = {}
-			for (const item of answerMap.keys()) {
-				objAnswer[item] = answerMap.get(item)
+			let objAnsw = {}
+			for (let item of answerMap.keys()) {
+				objAnsw[item] = answerMap.get(item)
 			}
-
-			console.log(objAnswer)
-			console.log(JSON.stringify(objAnswer))
-			localStorage.setItem('answer', JSON.stringify(objAnswer))
-			console.log(localStorage)
+			localStorage.setItem('answer', JSON.stringify(objAnsw))
 			return answerMap
 		} else {
-			const parsedMap = new Map()
-			const back = parsedAnswer as { [key: string]: string }
-			for (const prop in back) {
+			let parsedMap = new Map()
+			let back = parsedAnswer
+			for (let prop in back) {
 				parsedMap.set(prop, back[prop])
 			}
 			return parsedMap
 		}
 	})
-	console.log('answer: ', answer)
 
 	const initialAnswer = new Map(Object.entries(data))
 	initialAnswer.forEach((value, key) => {
@@ -76,57 +65,94 @@ const SurveyContainer: FC = () => {
 		initialAnswer.set(key, { type, points })
 	})
 
-	const initialObjAnswer: { [key: string]: object } = {}
-	for (const item of initialAnswer.keys()) {
+	let initialObjAnswer = {}
+	for (let item of initialAnswer.keys()) {
 		initialObjAnswer[item] = initialAnswer.get(item)
 	}
 
-	// useEffect(()=>{}, [answer])
+	function sendToServer() {
+		fetch(`${URL}/`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json;charset=utf-8',
+			},
+			body: { answer: '0' },
+		})
+			.then((resp) => resp)
+			.catch((err) => {
+				console.log(err?.code)
+				console.log('Ошибка в отправке данных на сервер')
+			})
+	}
 
 	useEffect(() => {
 		if (selectedButtons !== Array.from('nnnnnnnnnnnnnnnnnnnnnnn')) {
-			console.log('selected button [selectedButton]')
+			// console.log("selected button [selectedButton]")
 			localStorage.setItem(
 				'selectedButton',
 				selectedButtons
-					.map(item => {
+					.map((item) => {
 						if (item !== 'n') return `${item}`
 						else return 'n'
 					})
 					.join('')
 			)
 		}
-		console.log(localStorage)
+		// console.log(localStorage)
 	}, [selectedButtons])
 
 	useEffect(() => {
-		const objAnswer: { [key: string]: { type: number; points: number } } = {}
-		for (const item of answer.keys()) {
-			objAnswer[item] = answer.get(item)
+		let objAnsw = {}
+		for (let item of answer.keys()) {
+			objAnsw[item] = answer.get(item)
 		}
 
 		console.log('initialMap: ', initialObjAnswer)
-		if (JSON.stringify(objAnswer) !== JSON.stringify(initialObjAnswer)) {
-			console.log('yes')
-			localStorage.setItem('answer', JSON.stringify(objAnswer))
-			console.log('selected button [answer]')
-			console.log(localStorage)
+		if (JSON.stringify(objAnsw) !== JSON.stringify(initialObjAnswer)) {
+			localStorage.setItem('answer', JSON.stringify(objAnsw))
+			// console.log("selected button [answer]")
+			// console.log(localStorage)
 		}
 	}, [answer])
 
-	useEffect(() => {
-		fetch('', {
-			method: 'GET',
+	function fetchAnswers() {
+		let fetchBody = {
+			pollid: '',
+			templateId: '',
+			userId: '',
+			answers: {},
+		}
+		let objItems = Array.from(answer.entries()).map((item, id) => {
+			return {
+				questionId: id,
+				text: '',
+				answer: [
+					{
+						id: id,
+						value: `${item[1].points}`,
+						image: `${item[1].type}`,
+					},
+				],
+			}
+		})
+		fetchBody.answers = objItems
+		fetch('http://192.168.193.205:5000/', {
+			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json;charset=utf-8',
 			},
+			body: fetchBody,
 		})
-	}, [])
+	}
 
 	function handleSend() {
-		const answer = calcAnswer()
-		setFinalAnswer(answer)
-		setResult(prev => !prev)
+		if (selectedButtons.join('').slice(1).includes('n')) setModalNotAllAns(true)
+		else {
+			const answer = calcAnswer()
+			setFinalAnswer(answer)
+			setResult((prev) => !prev)
+			fetchAnswers()
+		}
 	}
 
 	const calcAnswer = () => {
@@ -170,14 +196,21 @@ const SurveyContainer: FC = () => {
 		return <div>Loading...</div>
 	} else {
 		return (
-			<div className='containeer__survey'>
+			<div className="containeer__survey">
+				{ModalNotAllAns && (
+					<Popup
+						notification="Не все вопросы заполнены"
+						notificationText="Ответьте на все вопросы"
+						handleSub={setModalNotAllAns}
+					/>
+				)}
 				<SurveyHeading />
 				<div className={styles.surveyContainer}>
 					{!isResult && (
 						<>
 							{temp}
 							<button
-								className='survey-btn'
+								className="survey-btn"
 								style={{
 									padding: '8px, 14px, 8px, 14px',
 									gap: '10px',
@@ -188,12 +221,18 @@ const SurveyContainer: FC = () => {
 							>
 								Сохранить
 							</button>
-							<button className='survey-btn' onClick={handleSend}>
+							<button className="survey-btn" onClick={handleSend}>
 								Отправить
 							</button>
 						</>
 					)}
-					{isResult && <Result answer={finalAnswer} />}
+					{isResult && (
+						<Result
+							answer={finalAnswer}
+							total={[43, 53, 20]}
+							names={['один', 'Два', 'Три']}
+						/>
+					)}
 				</div>
 			</div>
 		)
