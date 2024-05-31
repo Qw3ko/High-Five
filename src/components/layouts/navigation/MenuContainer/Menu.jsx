@@ -39,12 +39,7 @@ const Menu = ({ role }) => {
 					icon={recommendationLogo}
 					link={'/*'}
 				/>
-				<MenuItem
-					style={styles.inactivePage}
-					title={'Чат'}
-					icon={chatLogo}
-					link={'/*'}
-				/>
+				<MenuItem title={'Чат'} icon={chatLogo} link={'/chat'} />
 				{role === true && (
 					<MenuItem
 						title={'Отчеты'}

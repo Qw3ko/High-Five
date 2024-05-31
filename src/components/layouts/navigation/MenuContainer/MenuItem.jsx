@@ -9,6 +9,7 @@ const MenuItem = ({ title, icon, style = '', link }) => {
 			className={cn({
 				[styles.activeTab]: location.pathname === link,
 				[styles.inactivePage]: style.length > 0,
+				[styles.chatContainerTab]: location.pathname.indexOf('chat') === 1,
 			})}
 		>
 			<NavLink to={link}>

@@ -22,26 +22,30 @@
 			color: #474168;
 			text-decoration: none;
 			> span {
-				margin-left: 0.75rem;
+				margin-left: 5px;
 				font-size: 16px;
 				line-height: 18.78px;
 			}
 		}
 		&:hover {
-			background-color: #e2dfed;
+			background-color: #e2dfed99;
 			border-radius: 40px;
 		}
 	}
 }
 
 .activeTab {
-	background-color: #e2dfed;
+	background-color: #e2dfed99;
 }
 
 .inactivePage {
 	opacity: 0.4;
 	pointer-events: none;
 	background-color: white;
+}
+
+.chatContainerTab:nth-child(6) {
+	background-color: #e2dfed99;
 }
 
 .profileInfo {

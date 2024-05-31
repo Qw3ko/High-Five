@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/layouts/layout/Layout'
+import ChatContainer from './components/screens/chat/ChatContainer/ChatContainer'
+import ChatPage from './components/screens/chat/ChatPage'
 import Profile from './components/screens/profile/Profile'
 import Analytics from './components/screens/statistics/Analytics/Analytics'
 import GeneralInfo from './components/screens/statistics/GeneralInfo/GeneralInfo'
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
 			{
 				path: '/statistics',
 				element: <Statistics />,
+			},
+			{
+				path: '/chat',
+				element: <ChatPage />,
+			},
+			{
+				path: '/chat/:id',
+				element: <ChatContainer />,
 			},
 			{
 				path: '/statistics/general-info',

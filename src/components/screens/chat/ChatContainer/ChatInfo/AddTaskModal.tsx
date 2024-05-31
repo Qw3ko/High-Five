@@ -1,37 +1,39 @@
+import { ITask } from '@/components/screens/profile/Schedule/Schedule'
 import { Modal } from '@mui/material'
-import { useState } from 'react'
-import closeBtn from '../../../../assets/icons/cross.svg'
-import addBtnIcon from '../../../../assets/icons/plus.svg'
-import styles from './ModalScheduleMenu.module.css'
+import { FC, useState } from 'react'
+import closeBtn from '../../../../../assets/icons/cross.svg'
+import addBtnIcon from '../../../../../assets/icons/plus.svg'
+import styles from '../../../profile/Schedule/ModalScheduleMenu.module.css'
+import btnStyles from '../ChatContainer.module.css'
 
-const ModalScheduleMenu = ({ onChange }) => {
+const AddTaskModal: FC<ITask> = ({ onChange }) => {
 	const [open, setOpen] = useState(false)
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
-	const [time, setTime] = useState('')
 	const [date, setDate] = useState('')
 	const [text, setText] = useState('')
 	const [id, setId] = useState(0)
 
 	const handleSubmit = () => {
-		const checkbox = document.querySelector('[type="checkbox"]')
-		onChange({
-			id: id,
-			time: time,
-			date: date,
-			text: text,
-			isChecked: checkbox.checked,
-		})
-		setTime('')
-		setDate('')
-		setText('')
-		setId(id + 1)
+		const checkbox = document.getElementById(
+			'checkbox'
+		) as HTMLInputElement | null
+		if (checkbox) {
+			onChange({
+				id: id,
+				date: date,
+				text: text,
+				isChecked: checkbox.checked,
+			})
+			setDate('')
+			setText('')
+			setId(id + 1)
+		}
 	}
-
 	return (
 		<>
-			<button onClick={handleOpen} className={styles.addBtn}>
-				<img className={styles.addBtnIcon} src={addBtnIcon} />
+			<button onClick={handleOpen} className={btnStyles.meetingBtn}>
+				<img width={10} height={10} src={addBtnIcon} />
 			</button>
 			<Modal
 				sx={{
@@ -52,38 +54,35 @@ const ModalScheduleMenu = ({ onChange }) => {
 					<div className={styles.modalContent}>
 						<form>
 							<div className={styles.modalInputDateContainer}>
-								<div className={styles.timePicker}>
-									<input
-										className={styles.inputTime}
-										type='time'
-										onChange={e => setTime(e.target.value)}
-									/>
-								</div>
 								<div className={styles.datePicker}>
 									<input
-										name='date'
-										className={styles.inputDate}
-										type='date'
-										onChange={e => setDate(e.target.value)}
+										name="date"
+										className={styles.inputDateTask}
+										type="date"
+										onChange={(e) => setDate(e.target.value)}
 									/>
 								</div>
 							</div>
 							<div className={styles.modalTextAreaContainer}>
 								<textarea
-									name='text'
+									name="text"
 									className={styles.textArea}
-									placeholder='Введите текст'
-									onChange={e => setText(e.target.value)}
+									placeholder="Введите текст"
+									onChange={(e) => setText(e.target.value)}
 								/>
 							</div>
-							<div className={styles.modalFooter}>
+							<div className={styles.modalFooterTask}>
 								<label className={styles.checkboxLabel}>
-									<input type='checkbox' className={styles.checkbox} />
+									<input
+										id="checkbox"
+										type="checkbox"
+										className={styles.checkbox}
+									/>
 									Важная
 								</label>
 								<button
-									className={styles.btnCreate}
-									type='button'
+									className={styles.btnCreateTask}
+									type="button"
 									onClick={() => {
 										handleSubmit()
 										handleClose()
@@ -100,4 +99,4 @@ const ModalScheduleMenu = ({ onChange }) => {
 	)
 }
 
-export default ModalScheduleMenu
+export default AddTaskModal
