@@ -67,8 +67,6 @@ const SurveyContainer: FC = () => {
 				const data = response.data
 				setFinalResult(data)
 				setIsResult(true)
-				console.log(data.result)
-				console.log(data.points)
 			})
 		},
 	})
