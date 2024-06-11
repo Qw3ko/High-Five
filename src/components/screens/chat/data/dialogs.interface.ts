@@ -21,6 +21,7 @@ export interface IData {
 			senderId: number
 		}[]
 	}[]
+	onChange: (file: { file: string[] }) => void
 }
 
 export interface IDataProp {

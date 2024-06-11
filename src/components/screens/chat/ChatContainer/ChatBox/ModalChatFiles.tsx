@@ -7,7 +7,12 @@ import styles from '../../../profile/Schedule/ModalScheduleMenu.module.css'
 import { IData } from '../../data/dialogs.interface'
 import btnStyles from '../ChatContainer.module.css'
 
-const ModalChatFiles: FC<{ data: IData }> = ({ data, onChange }) => {
+interface ModalChatFilesProps {
+	data: IData
+	onChange: (file: { file: string[] }) => void
+}
+
+const ModalChatFiles: FC<ModalChatFilesProps> = ({ data, onChange }) => {
 	const currentDate = getDateOnly()
 	const [open, setOpen] = useState(false)
 	const handleOpen = () => setOpen(true)

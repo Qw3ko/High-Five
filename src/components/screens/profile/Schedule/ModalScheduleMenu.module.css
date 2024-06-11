@@ -164,10 +164,7 @@
 .addBtn {
 	width: 60px;
 	height: 60px;
-	margin-left: 55px;
-	margin-top: -5px;
-	align-content: center;
-	align-items: center;
+	margin-top: -10px;
 	transition: background-color 0.2s ease-in-out;
 	border: 1.03px solid #e2dfed;
 	background-color: #e2dfed33;

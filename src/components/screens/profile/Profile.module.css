@@ -92,7 +92,8 @@
 	display: flex;
 	position: fixed;
 	flex-direction: row;
-	width: 240px;
+	width: fit-content;
+	gap: 40px;
 	height: 31px;
 	margin-top: 15px;
 	font-family: Raleway;

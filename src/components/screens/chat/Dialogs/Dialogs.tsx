@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import noAvatar from '../../../../assets/images/noAvatar.svg'
-import profileImage from '../../../../assets/images/Фото3.svg'
+import profileImage from '../../../../assets/images/Фото4.svg'
 import data from '../data/dialogs.json'
 import styles from './Dialogs.module.css'
 

@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import sendIcon from '../../../../../assets/icons/arrow_right.svg'
 import noAvatar from '../../../../../assets/images/noAvatar.svg'
-import profileImage from '../../../../../assets/images/Фото3.svg'
+import profileImage from '../../../../../assets/images/Фото4.svg'
 import myProfileImage from '../../../../../assets/images/Фото5.svg'
 import { getDateOnly } from '../../../../../utils/getDateOnly'
 import { IData } from '../../data/dialogs.interface'
@@ -53,8 +53,8 @@ const ChatBox: FC<{ data: IData }> = ({ data }) => {
 		}
 	}
 
-	const updateState = (image: string) => {
-		setImages((prevImages) => [...prevImages, image])
+	const updateState = (file: { file: string[] }) => {
+		setImages((prevImages) => [...prevImages, ...file.file])
 	}
 
 	return (
