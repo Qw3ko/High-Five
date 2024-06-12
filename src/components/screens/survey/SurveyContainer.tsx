@@ -20,6 +20,7 @@ interface FinalResult {
 const SurveyContainer: FC = () => {
 	const [answerArray, setAnswer] = useState<IQuestion[]>([])
 	const [isResult, setIsResult] = useState(false)
+	const [isOpen, setIsOpen] = useState(false)
 	const [finalResult, setFinalResult] = useState<FinalResult>({
 		result: '',
 		points: {
@@ -67,6 +68,7 @@ const SurveyContainer: FC = () => {
 				const data = response.data
 				setFinalResult(data)
 				setIsResult(true)
+				setIsOpen(true)
 			})
 		},
 	})
@@ -105,7 +107,11 @@ const SurveyContainer: FC = () => {
 						</>
 					)}
 					{isResult === true && (
-						<Result result={finalResult.result} points={finalResult.points} />
+						<Result
+							result={finalResult.result}
+							points={finalResult.points}
+							isOpen={isOpen}
+						/>
 					)}
 				</div>
 			</div>
