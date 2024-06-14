@@ -1,1 +1,1 @@
-export const API_URL = `https://api.opros.skroy.ru`
+export const API_URL = `http://0.0.0.0:8000`

@@ -53,17 +53,15 @@ const SurveyContainer: FC = () => {
 
 	const mutation = useMutation({
 		mutationFn: () => {
-			return axios.post('https://api.opros.skroy.ru/answers', {
+			return axios.post('http://0.0.0.0:8000/answers', {
 				pollId: 'd39f2956-59c7-4b0e-a4c4-01aabeb65668',
 				templateId: 'ffe20cfa-4cb8-4dc5-b757-e06a037f4882',
 				userId: 'e937332f-34f2-41f1-868a-1eaa8db789e0',
 				answers: answerArray,
 			})
 		},
-		onSuccess: (data) => 
-			const response = axios.get(
-				'https://hf.skroy.ru/statistics/' + data.data.id
-			)
+		onSuccess: (data) => {
+			const response = axios.get('http://0.0.0.0:8000/' + data.data.id)
 			response.then((response) => {
 				const data = response.data
 				setFinalResult(data)
