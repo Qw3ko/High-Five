@@ -3,7 +3,6 @@
 	flex-direction: column;
 	margin-top: 3%;
 	padding: 50px;
-	width: 1300px;
 	height: fit-content;
 	background-color: #e2dfed33;
 	backdrop-filter: blur(40px);
@@ -13,6 +12,7 @@
 .surveyContainer {
 	max-height: 630px;
 	max-width: 1450px;
+	padding-right: 50px;
 	overflow: auto;
 	overflow-x: hidden;
 	&::-webkit-scrollbar {

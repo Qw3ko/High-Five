@@ -1,18 +1,18 @@
-.heading {
-	font-family: 'Raleway', sans-serif;
-	padding-bottom: 45px;
-	padding-right: 250px;
-	font-size: 30px;
-	color: #474168;
-	gap: 20px;
-	border-bottom: 2px solid;
-	border-color: #e2dfed99;
-}
-
-.container {
-	position: relative;
+.headingContainer {
 	display: flex;
 	flex-direction: row;
+	max-width: 1430px;
+	justify-content: space-between;
+}
+
+.heading {
+	font-family: 'Raleway', sans-serif;
+	width: fit-content;
+	padding-bottom: 45px;
+	font-size: 30px;
+	color: #474168;
+	border-bottom: 2px solid;
+	border-color: #e2dfed99;
 }
 
 .sidebar {

@@ -9,7 +9,7 @@ import ModalScheduleMenu from './ModalScheduleMenu'
 export interface ITask {
 	id: number
 	text: string
-	time: string
+	time?: string
 	date: Date
 	isChecked: boolean
 }

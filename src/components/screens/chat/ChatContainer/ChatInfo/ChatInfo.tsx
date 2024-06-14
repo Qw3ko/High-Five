@@ -8,7 +8,13 @@ import AddTaskModal from './AddTaskModal'
 const ChatInfo: FC<{ data: IData }> = ({ data }) => {
 	const [select, setSelect] = useState<number[]>([])
 	const [tasks, setTasks] = useState<ITask[]>([])
-	const addTask = (task: ITask) => {
+	const addTask = (
+		id: number,
+		date: Date,
+		text: string,
+		isChecked: boolean
+	) => {
+		const task: ITask = { id, text, date, isChecked }
 		setTasks((prevTasks) => [...prevTasks, task])
 		console.log(task)
 	}

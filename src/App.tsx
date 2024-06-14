@@ -4,7 +4,7 @@ import SurveyHeading from './components/screens/survey/SurveyHeading'
 
 const App = () => {
 	return (
-		<Layout role={true}>
+		<Layout>
 			<SurveyHeading />
 			<SurveyContainer />
 		</Layout>

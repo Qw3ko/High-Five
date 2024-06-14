@@ -24,7 +24,7 @@ const queryClient = new QueryClient({
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Layout role={true} />,
+		element: <Layout children={true} />,
 		children: [
 			{ path: '/survey', element: <SurveyContainer /> },
 			{

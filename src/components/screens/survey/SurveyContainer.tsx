@@ -60,7 +60,7 @@ const SurveyContainer: FC = () => {
 				answers: answerArray,
 			})
 		},
-		onSuccess: (data) => {
+		onSuccess: (data) => 
 			const response = axios.get(
 				'https://hf.skroy.ru/statistics/' + data.data.id
 			)

@@ -1,4 +1,3 @@
-import { ITask } from '@/components/screens/profile/Schedule/Schedule'
 import { Modal } from '@mui/material'
 import { FC, useState } from 'react'
 import closeBtn from '../../../../../assets/icons/cross.svg'
@@ -6,11 +5,15 @@ import addBtnIcon from '../../../../../assets/icons/plus.svg'
 import styles from '../../../profile/Schedule/ModalScheduleMenu.module.css'
 import btnStyles from '../ChatContainer.module.css'
 
-const AddTaskModal: FC<ITask> = ({ onChange }) => {
+export interface AddTaskModalProps {
+	onChange: (id: number, date: Date, text: string, checkbox: boolean) => void
+}
+
+const AddTaskModal: FC<AddTaskModalProps> = ({ onChange }) => {
 	const [open, setOpen] = useState(false)
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
-	const [date, setDate] = useState('')
+	const [date, setDate] = useState(new Date())
 	const [text, setText] = useState('')
 	const [id, setId] = useState(0)
 
@@ -19,13 +22,8 @@ const AddTaskModal: FC<ITask> = ({ onChange }) => {
 			'checkbox'
 		) as HTMLInputElement | null
 		if (checkbox) {
-			onChange({
-				id: id,
-				date: date,
-				text: text,
-				isChecked: checkbox.checked,
-			})
-			setDate('')
+			onChange(id, date, text, checkbox.checked)
+			setDate(new Date())
 			setText('')
 			setId(id + 1)
 		}
@@ -59,7 +57,7 @@ const AddTaskModal: FC<ITask> = ({ onChange }) => {
 										name="date"
 										className={styles.inputDateTask}
 										type="date"
-										onChange={(e) => setDate(e.target.value)}
+										onChange={(e) => setDate(new Date(e.target.value))}
 									/>
 								</div>
 							</div>
