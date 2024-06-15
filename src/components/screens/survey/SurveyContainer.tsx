@@ -62,7 +62,7 @@ const SurveyContainer: FC = () => {
 			})
 		},
 		onSuccess: (data) => {
-			const response = axios.get(LOCAL_URL + '/statistics' + data.data.id)
+			const response = axios.get(LOCAL_URL + '/statistics/' + data.data.id)
 			response.then((response) => {
 				const data = response.data
 				setFinalResult(data)
