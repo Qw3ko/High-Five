@@ -1,9 +1,9 @@
+import addIcon from '@/assets/icons/plus.svg'
+import searchIcon from '@/assets/icons/search.svg'
 import { ru } from 'date-fns/locale'
 import { FC, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import addIcon from '../../../../assets/icons/plus.svg'
-import searchIcon from '../../../../assets/icons/search.svg'
 import styles from './DialogHeader.module.css'
 
 const DialogHeader: FC = () => {

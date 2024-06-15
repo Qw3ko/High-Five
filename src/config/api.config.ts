@@ -1,1 +1,3 @@
-export const API_URL = `http://0.0.0.0:8000`
+export const LOCAL_URL = `http://localhost:8003`
+
+export const EXTERNAL_URL = `https://api.opros.skroy.ru`

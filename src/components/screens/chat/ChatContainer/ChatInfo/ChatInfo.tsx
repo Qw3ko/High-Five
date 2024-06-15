@@ -1,6 +1,6 @@
+import addBtn from '@/assets/icons/plus.svg'
 import { ITask } from '@/components/screens/profile/Schedule/Schedule'
 import { FC, useState } from 'react'
-import addBtn from '../../../../../assets/icons/plus.svg'
 import { IData } from '../../data/dialogs.interface'
 import styles from '../ChatContainer.module.css'
 import AddTaskModal from './AddTaskModal'

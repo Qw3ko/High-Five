@@ -1,6 +1,6 @@
 import { Modal } from '@mui/material'
 import { FC, useState } from 'react'
-import closeBtn from '../../../../../assets/icons/cross.svg'
+import closeBtn from '@/assets/icons/cross.svg'
 import styles from '../../../profile/Users/ModalUserMeeting.module.css'
 import btnStyles from '../ChatContainer.module.css'
 

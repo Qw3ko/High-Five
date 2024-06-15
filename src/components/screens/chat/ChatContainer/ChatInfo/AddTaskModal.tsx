@@ -1,7 +1,7 @@
+import closeBtn from '@/assets/icons/cross.svg'
+import addBtnIcon from '@/assets/icons/plus.svg'
 import { Modal } from '@mui/material'
 import { FC, useState } from 'react'
-import closeBtn from '../../../../../assets/icons/cross.svg'
-import addBtnIcon from '../../../../../assets/icons/plus.svg'
 import styles from '../../../profile/Schedule/ModalScheduleMenu.module.css'
 import btnStyles from '../ChatContainer.module.css'
 
