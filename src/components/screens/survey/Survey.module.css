@@ -150,3 +150,18 @@
 	margin-right: 16px;
 	margin-top: 3px;
 }
+
+.loadingContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 20%;
+	align-items: center;
+	gap: 50px;
+	font-family: Raleway;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 14.09px;
+	text-align: left;
+	color: #474168;
+}

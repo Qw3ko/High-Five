@@ -1,0 +1,81 @@
+.mainContainer {
+	margin-top: 50px;
+}
+
+.employeeContainer {
+	display: flex;
+	gap: 150px;
+	width: max-content;
+	margin-bottom: 50px;
+	border: 1px solid transparent;
+	border-radius: 40px 10px 40px 10px;
+	&:hover {
+		background-color: #e2dfed33;
+	}
+}
+
+.wrapperInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	width: 302px;
+}
+
+.personalWrapper {
+	display: flex;
+	gap: 20px;
+	width: 280px;
+}
+
+.header {
+	font-family: Raleway;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 23.48px;
+	text-align: left;
+	color: #474168;
+}
+
+.subHeader {
+	font-family: Raleway;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 18.78px;
+	text-align: left;
+	color: #474168;
+	opacity: 0.6;
+}
+
+.interactionContainer {
+	align-content: center;
+}
+
+.btn {
+	width: 39px;
+	height: 39px;
+	gap: 6.67px;
+	border-radius: 26.67px;
+	border: 0.67px solid #e2dfed;
+	background-color: #e2dfed33;
+	transition: background-color 0.2s ease-in-out;
+	margin-right: 10px;
+	&:hover {
+		background-color: #e2dfed;
+		cursor: pointer;
+	}
+}
+
+.loadingContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 5%;
+	align-items: center;
+	gap: 50px;
+	font-family: Raleway;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 14.09px;
+	text-align: left;
+	color: #474168;
+}

@@ -12,7 +12,7 @@ const TabNavItem: FC<{
 
 	return (
 		<li onClick={handleClick} className={activeTab === id ? 'active' : ''}>
-			<div className='window__tab'>{title}</div>
+			<div className="window__tab">{title}</div>
 		</li>
 	)
 }

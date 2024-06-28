@@ -5,7 +5,7 @@ const TabContent: FC<{
 	activeTab: string
 	children: React.ReactNode
 }> = ({ id, activeTab, children }) => {
-	return activeTab === id ? <div className='TabContent'>{children}</div> : null
+	return activeTab === id ? <div className="TabContent">{children}</div> : null
 }
 
 export default TabContent

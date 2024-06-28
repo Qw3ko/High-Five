@@ -17,12 +17,7 @@ const Menu = ({ role }) => {
 			<ul className={styles.ul}>
 				<MenuItem title={'Профиль'} icon={homeLogo} link={'/profile'} />
 				{role === true && (
-					<MenuItem
-						style={styles.inactivePage}
-						title={'Компания'}
-						icon={companyLogo}
-						link={'/*'}
-					/>
+					<MenuItem title={'Компания'} icon={companyLogo} link={'/company'} />
 				)}
 				<MenuItem title={'Опросы'} icon={surveyLogo} link={'/survey'} />
 				{role === true && (

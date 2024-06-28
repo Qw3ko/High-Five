@@ -2,6 +2,7 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { EXTERNAL_URL, LOCAL_URL } from 'config/api.config'
 import { FC, useState } from 'react'
+import loadingGif from '../../../assets/images/loading.gif'
 import { TemplateService } from '../../../services/surveys/templates.service'
 import { IQuestion, collectAnswers } from '../../../utils/collectAnswers'
 import styles from './Survey.module.css'
@@ -73,13 +74,23 @@ const SurveyContainer: FC = () => {
 	})
 
 	if (isLoading) {
-		return <div>Loading...</div>
+		return (
+			<div className={styles.loadingContainer}>
+				<img width={301} height={262} src={loadingGif} />
+				<div>Загрузка...</div>
+			</div>
+		)
 	} else {
 		return (
 			<div>
 				<SurveyHeading />
 				<div className={styles.surveyContainer}>
-					{!isLoading && (
+					{isLoading ? (
+						<div className={styles.loadingContainer}>
+							<img width={301} height={262} src={loadingGif} />
+							<div>Загрузка...</div>
+						</div>
+					) : (
 						<>
 							{templateData &&
 								templateData.questions.map((question) => (

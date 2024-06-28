@@ -421,7 +421,7 @@
 .image {
 	width: 251px;
 	height: 200px;
-	background-image: url('../../../../public/image.jpg');
+	background-image: url('../../../assets/images/image.jpg');
 	clip-path: polygon(0 29%, 77% 14%, 100% 100%, 15% 90%);
 	background-size: cover;
 	border-radius: 40px;

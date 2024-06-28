@@ -1,0 +1,117 @@
+.modalContainer {
+	position: absolute;
+	width: fit-content;
+	height: fit-content;
+	top: 50%;
+	left: 50%;
+	padding: 25px;
+	outline: none;
+	transform: translate(-50%, -50%);
+	backdrop-filter: blur(10px);
+	border: 2px solid #e2dfed;
+	background-color: #e2dfed33;
+	border-radius: 20px;
+}
+
+.modalHeaderContainer {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #4741681e;
+	padding-bottom: 10px;
+}
+
+.modalHeading {
+	font-family: Ubuntu;
+	font-size: 36px;
+	font-weight: 400;
+	line-height: 41.36px;
+	text-align: left;
+	color: #474168;
+}
+
+.btn {
+	width: 39px;
+	height: 39px;
+	gap: 6.67px;
+	border-radius: 26.67px;
+	border: 0.67px solid #e2dfed;
+	background-color: #e2dfed33;
+	transition: background-color 0.2s ease-in-out;
+	&:hover {
+		background-color: #e2dfed;
+		cursor: pointer;
+	}
+}
+
+.modalContent {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+	gap: 20px;
+	> span {
+		font-family: Raleway;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 18.78px;
+		text-align: left;
+		opacity: 0.6;
+	}
+}
+
+.btnContainer {
+	display: flex;
+	justify-content: end;
+}
+
+.btnWrapper {
+	display: flex;
+	justify-content: space-between;
+	width: 410px;
+	height: 50px;
+	padding: 5px;
+	gap: 10px;
+	border-radius: 40px;
+	border: 1px solid #e2dfed;
+	opacity: 0px;
+	gap: 10px;
+}
+
+.btnCancel {
+	width: 200px;
+	height: fit-content;
+	padding: 13px 15px;
+	gap: 10px;
+	border-radius: 40px;
+	border: 1px solid transparent;
+	background-color: transparent;
+	font-family: Raleway;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 23.48px;
+	text-align: center;
+	color: #474168;
+	&:hover {
+		background-color: #e2dfed99;
+		cursor: pointer;
+	}
+}
+
+.btnDelete {
+	width: 200px;
+	height: fit-content;
+	padding: 13px 15px;
+	gap: 10px;
+	border-radius: 40px;
+	border: 1px solid transparent;
+	background-color: transparent;
+	font-family: Raleway;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 23.48px;
+	text-align: center;
+	color: #474168;
+	&:hover {
+		background-color: #e2dfed99;
+		cursor: pointer;
+	}
+}
