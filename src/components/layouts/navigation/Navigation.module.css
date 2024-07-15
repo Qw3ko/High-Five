@@ -10,6 +10,9 @@
 }
 
 .navigation {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	padding-top: 2.75rem;
 	padding-bottom: 2.75rem;
 }

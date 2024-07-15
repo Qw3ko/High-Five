@@ -1,0 +1,8 @@
+.mainContainer {
+	margin: 2% 10% 2% 10%;
+}
+
+:root {
+	background-image: url('../../../assets/images/background2.jpg');
+	background-size: cover;
+}

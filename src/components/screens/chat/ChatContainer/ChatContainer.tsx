@@ -1,7 +1,8 @@
+import { ChatService } from '@/services/chat/chat.service'
+import { useQuery } from '@tanstack/react-query'
 import { FC } from 'react'
 import { useLocation } from 'react-router-dom'
-import { IData } from '../data/dialogs.interface'
-import data from '../data/dialogs.json'
+import loadingGif from '../../../../assets/images/loading.gif'
 import ChatBox from './ChatBox/ChatBox'
 import styles from './ChatContainer.module.css'
 import ChatHeader from './ChatHeader/ChatHeader'
@@ -10,24 +11,35 @@ import ChatInfo from './ChatInfo/ChatInfo'
 const ChatContainer: FC = () => {
 	const location = useLocation()
 
-	let chat: IData
-	if (location.pathname === '/chat/1') {
-		chat = data[0]
-	} else if (location.pathname === '/chat/2') {
-		chat = data[1]
-	} else if (location.pathname === '/chat/3') {
-		chat = data[2]
-	} else {
-		throw new Error('Invalid Chat')
-	}
+	const chatId = location.pathname.split('/')[2]
+
+	const { isLoading, data } = useQuery({
+		queryKey: ['dialogs'],
+		queryFn: () =>
+			ChatService.getChat('bd743040-d003-4579-8a34-1da34db38db9', chatId),
+		select: (data) => data.data,
+	})
 
 	return (
 		<div className={styles.mainContainer}>
-			<ChatHeader data={chat} />
-			<div className={styles.chatContainer}>
-				<ChatBox data={chat} />
-				<ChatInfo data={chat} />
-			</div>
+			{isLoading ? (
+				<div className={styles.loadingContainer}>
+					<img width={301} height={262} src={loadingGif} />
+					<div>Загрузка...</div>
+				</div>
+			) : (
+				<div>
+					{data ? (
+						<>
+							<ChatHeader data={data} />
+							<div className={styles.chatContainer}>
+								<ChatBox data={data} />
+								<ChatInfo data={data} />
+							</div>
+						</>
+					) : null}
+				</div>
+			)}
 		</div>
 	)
 }

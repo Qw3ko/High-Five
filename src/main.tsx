@@ -4,9 +4,11 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import Layout from './components/layouts/layout/Layout'
+import Auth from './components/screens/auth/Auth'
 import ChatContainer from './components/screens/chat/ChatContainer/ChatContainer'
 import ChatPage from './components/screens/chat/ChatPage'
 import Company from './components/screens/company/Company'
+import ErrorPage from './components/screens/error/ErrorPage'
 import Profile from './components/screens/profile/Profile'
 import Analytics from './components/screens/statistics/Analytics/Analytics'
 import GeneralInfo from './components/screens/statistics/GeneralInfo/GeneralInfo'
@@ -26,7 +28,8 @@ const queryClient = new QueryClient({
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Layout children={true} />,
+		element: <Layout />,
+		errorElement: <ErrorPage />,
 		children: [
 			{ path: '/survey', element: <SurveyContainer /> },
 			{
@@ -62,6 +65,10 @@ const router = createBrowserRouter([
 				element: <Analytics />,
 			},
 		],
+	},
+	{
+		path: '/login',
+		element: <Auth />,
 	},
 ])
 

@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import recommendationLogo from '../../../../assets/icons/check.svg'
 import chatLogo from '../../../../assets/icons/group.svg'
 import helpLogo from '../../../../assets/icons/help.svg'
@@ -11,7 +12,7 @@ import templatesLogo from '../../../../assets/icons/template.svg'
 import styles from './Menu.module.css'
 import MenuItem from './MenuItem'
 
-const Menu = ({ role }) => {
+const Menu: FC<{ role: boolean }> = ({ role }) => {
 	return (
 		<div className={styles.menu}>
 			<ul className={styles.ul}>

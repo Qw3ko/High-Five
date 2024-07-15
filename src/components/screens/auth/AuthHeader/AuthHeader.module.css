@@ -1,0 +1,35 @@
+.mainContainer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo {
+	width: 178px;
+	height: 100px;
+}
+
+.navContainer {
+	align-content: center;
+}
+
+.nav {
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+	font-family: Raleway;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 14.09px;
+	text-align: left;
+	margin: 0;
+}
+
+.link {
+	padding: 10px 20px 10px 20px;
+	border: 1px solid transparent;
+	border-radius: 40px;
+	&:hover {
+		background-color: #e2dfed;
+		cursor: pointer;
+	}
+}

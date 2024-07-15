@@ -492,7 +492,7 @@
 .calendarContainer {
 	width: fit-content;
 	height: fit-content;
-	margin-top: -15px;
+	margin-top: 20px;
 	align-content: center;
 	background-color: #e2dfed33;
 	border: 1px solid #e2dfed;

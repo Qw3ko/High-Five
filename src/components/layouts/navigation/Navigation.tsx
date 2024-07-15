@@ -1,7 +1,8 @@
+import { FC } from 'react'
 import MenuContainer from './MenuContainer/MenuContainer'
 import styles from './Navigation.module.css'
 
-const Navigation = ({ role }) => {
+const Navigation: FC<{ role: boolean }> = ({ role }) => {
 	return (
 		<div className={styles.navigation}>
 			<div className={styles.logo}>High five</div>

@@ -16,6 +16,7 @@ export interface IEmployee {
 		branch: string
 		gender: string
 		salary: string
+		isAdmin: boolean
 		position: string
 		education: string
 		interests: string

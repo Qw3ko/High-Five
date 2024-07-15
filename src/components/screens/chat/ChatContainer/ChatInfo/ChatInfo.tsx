@@ -1,11 +1,11 @@
 import addBtn from '@/assets/icons/plus.svg'
 import { ITask } from '@/components/screens/profile/Schedule/Schedule'
 import { FC, useState } from 'react'
-import { IData } from '../../data/dialogs.interface'
+import { IDialog } from '../../Dialogs/Dialogs.interface'
 import styles from '../ChatContainer.module.css'
 import AddTaskModal from './AddTaskModal'
 
-const ChatInfo: FC<{ data: IData }> = ({ data }) => {
+const ChatInfo: FC<{ data: IDialog[] }> = ({ data }) => {
 	const [select, setSelect] = useState<number[]>([])
 	const [tasks, setTasks] = useState<ITask[]>([])
 	const addTask = (
@@ -37,29 +37,21 @@ const ChatInfo: FC<{ data: IData }> = ({ data }) => {
 		<div className={styles.dialogInfoContainer}>
 			<div className={styles.userInfoContainer}>
 				<span className={styles.heading}>О собеседнике</span>
-				{data.isAnonymous ? (
+				{data[0].isAnonymous === 'True' ? (
 					<div className={styles.textContainer}>
 						<span className={styles.text}>
 							Собеседник решил оставить ФИ анонимным
 						</span>
-						<span className={styles.text}>
-							Уровень выгорания: {data.levelOfBurnout}
-						</span>
-						<span className={styles.text}>
-							Стаж работы: {data.workExperience}
-						</span>
+						<span className={styles.text}>Уровень выгорания:</span>
+						<span className={styles.text}>Стаж работы:</span>
 					</div>
 				) : (
 					<div className={styles.textContainer}>
-						<span className={styles.text}>{data.chatName}</span>
-						<span className={styles.text}>
-							Уровень выгорания: {data.levelOfBurnout}
-						</span>
-						<span className={styles.text}>
-							Стаж работы: {data.workExperience}
-						</span>
-						<span className={styles.text}>Телефон: {data.phoneNumber}</span>
-						<span className={styles.text}>E-mail: {data.email}</span>
+						<span className={styles.text}>{data[0].chatName}</span>
+						<span className={styles.text}>Уровень выгорания:</span>
+						<span className={styles.text}>Стаж работы:</span>
+						<span className={styles.text}>Телефон:</span>
+						<span className={styles.text}>E-mail: </span>
 					</div>
 				)}
 			</div>
