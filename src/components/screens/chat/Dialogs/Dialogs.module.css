@@ -10,6 +10,12 @@ a {
 	display: block;
 	margin-right: 300px;
 	flex-direction: column;
+	max-height: 600px;
+	width: fit-content;
+	overflow: auto;
+	&::-webkit-scrollbar {
+		width: 0;
+	}
 	> .sortHeader {
 		font-family: Raleway;
 		font-size: 14px;
@@ -67,7 +73,7 @@ a {
 }
 
 .chatFooter {
-	margin-left: 300px;
+	margin-left: 290px;
 	> .chatTime {
 		font-family: Raleway;
 		font-size: 20px;
@@ -95,6 +101,8 @@ a {
 }
 
 .loadingContainer {
+	position: absolute;
+	left: 50%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

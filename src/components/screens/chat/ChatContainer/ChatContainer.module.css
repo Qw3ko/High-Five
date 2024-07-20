@@ -134,7 +134,7 @@
 					> .messageWrapperRight {
 						display: flex;
 						justify-content: end;
-						margin-top: 20px;
+						margin-top: 50px;
 						> .myMessage {
 							width: fit-content;
 							height: fit-content;

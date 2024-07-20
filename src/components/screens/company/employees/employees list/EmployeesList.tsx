@@ -1,10 +1,10 @@
 import { CompanyService } from '@/services/company/company.service'
 import { useQuery } from '@tanstack/react-query'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import EmployeesItem from './EmployeeItem'
 
 const EmployeesList: FC = () => {
-	const { isLoading, data, refetch } = useQuery({
+	const { isLoading, data } = useQuery({
 		queryKey: ['employees'],
 		queryFn: () =>
 			CompanyService.getUsersByCompanyId(
@@ -13,10 +13,6 @@ const EmployeesList: FC = () => {
 	})
 
 	const employeesData = data?.data
-
-	useEffect(() => {
-		refetch()
-	})
 
 	return (
 		<div>

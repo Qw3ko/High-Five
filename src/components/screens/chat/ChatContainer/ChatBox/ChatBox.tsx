@@ -1,10 +1,10 @@
 import sendIcon from '@/assets/icons/arrow_right.svg'
 import noAvatar from '@/assets/images/noAvatar.svg'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { LOCAL_URL } from 'config/api.config'
 import Cookies from 'js-cookie'
-import { FC, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { IDialog } from '../../Dialogs/Dialogs.interface'
@@ -13,7 +13,9 @@ import styles from '../ChatContainer.module.css'
 const ChatBox: FC<{ data: IDialog[] }> = ({ data }) => {
 	const location = useLocation()
 	const userId = Cookies.get('user')
+	const messagesEndRef = useRef<null | HTMLDivElement>(null)
 	const [message, setMessage] = useState('')
+	const queryClient = useQueryClient()
 	const sendMessage = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
 		if (message.trim() === '') {
@@ -34,7 +36,6 @@ const ChatBox: FC<{ data: IDialog[] }> = ({ data }) => {
 				{
 					comment_text: message,
 					user: {
-						id: 0,
 						external_id: userId,
 						first_name: 'string',
 						last_name: 'string',
@@ -46,70 +47,94 @@ const ChatBox: FC<{ data: IDialog[] }> = ({ data }) => {
 			)
 			setMessage('')
 		},
+		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ['dialogs'] })
+		},
 		onError: (error) => {
 			toast.error('Ошибка при отправке сообщения:' + error.message)
 		},
 	})
 
+	const scrollToBottom = () => {
+		messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+	}
+
+	useEffect(() => {
+		scrollToBottom()
+	}, [data])
+
 	return (
 		<div className={styles.dialogWindow}>
 			<div className={styles.messagesContainer}>
-				{data[0].dialogs.map((item) => (
-					<div key={item.id}>
+				{data.length <= 0 ? (
+					<div>
 						<div className={styles.dateContainer}>
-							<div className={styles.date}>
-								{new Date(item.date_created).toLocaleString().split(',')[0]}
-							</div>
+							<div className={styles.date}></div>
 						</div>
 						<div className={styles.messageContainer}>
-							<div
-								className={
-									item.user.external_id !== Cookies.get('user')
-										? styles.messageWrapperLeft
-										: styles.messageWrapperRight
-								}
-							>
-								{item.user.external_id !== Cookies.get('user') ? (
-									<>
-										<div className={styles.profileImage}>
-											<img width={54} height={54} src={noAvatar} />
-										</div>
-										<div className={styles.message}>
-											<div className={styles.messageText}>
-												<span>{item.comment_text}</span>
-												<span className={styles.time}>
-													{
-														new Date(item.date_created)
-															.toLocaleString()
-															.split(',')[1]
-													}
-												</span>
-											</div>
-										</div>
-									</>
-								) : (
-									<>
-										<div className={styles.myMessage}>
-											<div className={styles.messageText}>
-												<span className={styles.time}>
-													{
-														new Date(item.date_created)
-															.toLocaleString()
-															.split(',')[1]
-													}
-												</span>
-												<span>{item.comment_text}</span>
-											</div>
-										</div>
-										<div className={styles.profileImage}>
-											<img width={54} height={54} src={noAvatar} />
-										</div>
-									</>
-								)}
-							</div>
+							<div></div>
+							<div ref={messagesEndRef} />
 						</div>
 					</div>
-				))}
+				) : (
+					data[0].dialogs.map((item) => (
+						<div key={item.id}>
+							<div className={styles.dateContainer}>
+								<div className={styles.date}>
+									{new Date(item.date_created).toLocaleString().split(',')[0]}
+								</div>
+							</div>
+							<div className={styles.messageContainer}>
+								<div
+									className={
+										item.user.external_id !== Cookies.get('user')
+											? styles.messageWrapperLeft
+											: styles.messageWrapperRight
+									}
+								>
+									{item.user.external_id !== Cookies.get('user') ? (
+										<>
+											<div className={styles.profileImage}>
+												<img width={54} height={54} src={noAvatar} />
+											</div>
+											<div className={styles.message}>
+												<div className={styles.messageText}>
+													<span>{item.comment_text}</span>
+													<span className={styles.time}>
+														{
+															new Date(item.date_created)
+																.toLocaleString()
+																.split(',')[1]
+														}
+													</span>
+												</div>
+											</div>
+										</>
+									) : (
+										<>
+											<div className={styles.myMessage}>
+												<div className={styles.messageText}>
+													<span className={styles.time}>
+														{
+															new Date(item.date_created)
+																.toLocaleString()
+																.split(',')[1]
+														}
+													</span>
+													<span>{item.comment_text}</span>
+												</div>
+											</div>
+											<div className={styles.profileImage}>
+												<img width={54} height={54} src={noAvatar} />
+											</div>
+										</>
+									)}
+								</div>
+								<div ref={messagesEndRef} />
+							</div>
+						</div>
+					))
+				)}
 			</div>
 			<div className={styles.inputContainer}>
 				<form

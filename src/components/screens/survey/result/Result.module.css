@@ -6,10 +6,10 @@
 	height: fit-content;
 	padding: 30px;
 	transform: translate(-50%, -50%);
-	backdrop-filter: blur(40px);
 	border: 2px solid #e2dfed;
-	background-color: #e2dfed33;
+	background-color: #f5f3f8;
 	border-radius: 20px;
+	outline: none;
 }
 
 .modalHeaderContainer {
@@ -40,6 +40,11 @@
 }
 
 .modalContent {
+	display: flex;
+	flex-direction: column;
+}
+
+.recommendations {
 	display: flex;
 	flex-direction: column;
 }
@@ -78,7 +83,7 @@
 .span {
 	margin-top: 5px;
 	font-family: Raleway;
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: 400;
 	line-height: 16.44px;
 	text-align: left;
@@ -93,4 +98,28 @@ ul {
 	line-height: 16.44px;
 	text-align: left;
 	color: #474168;
+}
+
+.footer {
+	display: flex;
+	margin-top: 20px;
+	justify-content: center;
+}
+
+.btn {
+	padding: 10px;
+	width: 500px;
+	border-radius: 40px;
+	background-color: #e2dfed99;
+	transition: background-color 0.2s ease-in-out;
+	font-family: Raleway;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 18.78px;
+	text-align: center;
+	color: #474168;
+	&:hover {
+		cursor: pointer;
+		background-color: #e2dfed99;
+	}
 }

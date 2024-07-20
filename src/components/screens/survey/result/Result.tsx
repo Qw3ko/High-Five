@@ -1,5 +1,7 @@
 import { Modal } from '@mui/material'
+import Cookies from 'js-cookie'
 import { FC, useState } from 'react'
+import { Link } from 'react-router-dom'
 import closeBtn from '../../../../assets/icons/cross.svg'
 import styles from './Result.module.css'
 
@@ -27,6 +29,7 @@ const Result: FC<IResult> = ({ result, points, isOpen }) => {
 		setModalOpen(false)
 		location.reload()
 	}
+	const userId = Cookies.get('user')
 	return (
 		<Modal
 			sx={{
@@ -151,6 +154,11 @@ const Result: FC<IResult> = ({ result, points, isOpen }) => {
 									Собирайте отзывы и благодарности
 								</li>
 							</ul>
+							<div className={styles.footer}>
+								<Link to={`/chat/${userId}`} className={styles.btn}>
+									Поговорить с HR
+								</Link>
+							</div>
 						</div>
 					)}
 					{result === 'Высокая степень' && (
@@ -169,6 +177,11 @@ const Result: FC<IResult> = ({ result, points, isOpen }) => {
 								рекомендуем поговорить с близкими, психологом или коллегами о
 								своих переживаниях.
 							</div>
+							<div className={styles.footer}>
+								<Link to={`/chat/${userId}`} className={styles.btn}>
+									Поговорить с HR
+								</Link>
+							</div>
 						</div>
 					)}
 					{result === 'Крайне высокая степень' && (
@@ -186,6 +199,11 @@ const Result: FC<IResult> = ({ result, points, isOpen }) => {
 								поможет вам отвлечься от работы и зарядиться энергией. Так же
 								рекомендуем поговорить с близкими, психологом или коллегами о
 								своих переживаниях.
+							</div>
+							<div className={styles.footer}>
+								<Link to={`/chat/${userId}`} className={styles.btn}>
+									Поговорить с HR
+								</Link>
 							</div>
 						</div>
 					)}

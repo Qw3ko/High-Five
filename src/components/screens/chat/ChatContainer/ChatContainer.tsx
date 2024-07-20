@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { FC } from 'react'
 import { useLocation } from 'react-router-dom'
 import loadingGif from '../../../../assets/images/loading.gif'
+import { IDialog } from '../Dialogs/Dialogs.interface'
 import ChatBox from './ChatBox/ChatBox'
 import styles from './ChatContainer.module.css'
 import ChatHeader from './ChatHeader/ChatHeader'
@@ -13,12 +14,19 @@ const ChatContainer: FC = () => {
 
 	const chatId = location.pathname.split('/')[2]
 
-	const { isLoading, data } = useQuery({
+	let data: IDialog[] = []
+
+	const { isLoading, data: queryData } = useQuery({
 		queryKey: ['dialogs'],
 		queryFn: () =>
 			ChatService.getChat('bd743040-d003-4579-8a34-1da34db38db9', chatId),
 		select: (data) => data.data,
+		refetchInterval: 1000,
 	})
+
+	if (queryData !== undefined) {
+		data = queryData
+	}
 
 	return (
 		<div className={styles.mainContainer}>

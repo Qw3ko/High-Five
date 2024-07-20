@@ -7,7 +7,9 @@ import DialogModal from './DialogModal'
 const ChatHeader: FC<{ data: IDialog[] }> = ({ data }) => {
 	return (
 		<div className={styles.headerContainer}>
-			<span className={styles.headerText}>{data[0].chatName}</span>
+			<span className={styles.headerText}>
+				{data.length <= 0 ? 'Свободный разговор' : data[0].chatName}
+			</span>
 			<div className={styles.interactionContainer}>
 				<DialogModal />
 				<button className={styles.searchBtn}>

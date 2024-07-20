@@ -37,7 +37,15 @@ const ChatInfo: FC<{ data: IDialog[] }> = ({ data }) => {
 		<div className={styles.dialogInfoContainer}>
 			<div className={styles.userInfoContainer}>
 				<span className={styles.heading}>О собеседнике</span>
-				{data[0].isAnonymous === 'True' ? (
+				{data.length <= 0 ? (
+					<div className={styles.textContainer}>
+						<span className={styles.text}>
+							Собеседник решил оставить ФИ анонимным
+						</span>
+						<span className={styles.text}>Уровень выгорания:</span>
+						<span className={styles.text}>Стаж работы:</span>
+					</div>
+				) : data[0].isAnonymous === 'True' ? (
 					<div className={styles.textContainer}>
 						<span className={styles.text}>
 							Собеседник решил оставить ФИ анонимным

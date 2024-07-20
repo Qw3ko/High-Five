@@ -21,25 +21,31 @@ const Dialogs: FC = () => {
 
 	const currentUser = useQuery({
 		queryKey: ['user'],
-		queryFn: () => {
+		queryFn: async () => {
 			if (userId) {
-				return CompanyService.getUserById(userId)
+				return await CompanyService.getUserById(userId)
 			}
-			return Promise.resolve(null)
+			return null
 		},
-		select: (data) => data?.data,
+		select: (data) => data && data.data,
+		enabled: !!userId,
 	})
 
 	const roleCheck = currentUser.data?.additional_info.isAdmin
 
 	const dataForUser = useQuery({
 		queryKey: ['getHr'],
-		queryFn: () =>
-			ChatService.getChat(
-				'bd743040-d003-4579-8a34-1da34db38db9',
-				'284f8a2c-93d6-4de2-a48e-6ee9c79e39ed'
-			),
+		queryFn: async () => {
+			if (currentUser.data) {
+				return await ChatService.getChat(
+					'bd743040-d003-4579-8a34-1da34db38db9',
+					currentUser.data.user_id
+				)
+			}
+			return null
+		},
 		select: (data) => data && data.data,
+		enabled: !!currentUser,
 	})
 
 	if (roleCheck === false) {
@@ -61,6 +67,22 @@ const Dialogs: FC = () => {
 						<img width={301} height={262} src={loadingGif} />
 						<div>Загрузка...</div>
 					</div>
+				) : data.length <= 0 ? (
+					<Link to={String(userId)}>
+						<div className={styles.chatItem}>
+							<div className={styles.profileImage}>
+								<img src={noAvatar} width={70} height={70} />
+							</div>
+							<div className={styles.chatInfo}>
+								<span className={styles.chatName}>Свободный разговор</span>
+								<span className={styles.lastMessage}></span>
+							</div>
+							<div className={styles.chatFooter}>
+								<div className={styles.chatTime}></div>
+								{/* <div className={styles.unreadMessage}></div> */}
+							</div>
+						</div>
+					</Link>
 				) : (
 					data?.map((item: IDialog) => (
 						<Link

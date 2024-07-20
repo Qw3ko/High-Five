@@ -1,6 +1,6 @@
 import { CompanyService } from '@/services/company/company.service'
 import { Modal } from '@mui/material'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { USERS_URL } from 'config/api.config'
 import { ru } from 'date-fns/locale'
@@ -48,6 +48,7 @@ const ModalEditEmployee: FC<IUser> = ({ id }) => {
 	const [additionalInfo, setAdditionalInfo] = useState('')
 	const last_name = fullName.split(' ')[0]
 	const first_name = fullName.split(' ')[1]
+	const queryClient = useQueryClient()
 
 	const sendUser = () => {
 		userMutation.mutate()
@@ -68,7 +69,6 @@ const ModalEditEmployee: FC<IUser> = ({ id }) => {
 	})
 
 	useEffect(() => {
-		console.log()
 		setDateBirth(
 			userData?.data
 				? new Date(
@@ -149,6 +149,7 @@ const ModalEditEmployee: FC<IUser> = ({ id }) => {
 			})
 		},
 		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ['employees'] })
 			toast.success('Изменения успешно сохранены!')
 		},
 		onError: (error) => {

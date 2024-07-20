@@ -1,6 +1,6 @@
 import { CompanyService } from '@/services/company/company.service'
 import { Modal } from '@mui/material'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { FC, useState } from 'react'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -16,6 +16,7 @@ const ModalDeleteStuff: FC<IUser> = ({ id }) => {
 	const [open, setOpen] = useState(false)
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
+	const queryClient = useQueryClient()
 
 	const deleteUser = () => {
 		userMutation.mutate()
@@ -30,6 +31,7 @@ const ModalDeleteStuff: FC<IUser> = ({ id }) => {
 			toast.error('Ошибка при удалении пользователя:' + error.message)
 		},
 		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ['employees'] })
 			toast.success('Пользователь удален успешно')
 		},
 		onSettled: () => {

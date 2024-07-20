@@ -1,7 +1,7 @@
 import { CompanyService } from '@/services/company/company.service'
 import { generatePassword } from '@/utils/generatePassword'
 import { Modal } from '@mui/material'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { USERS_URL } from 'config/api.config'
 import { ru } from 'date-fns/locale'
@@ -40,6 +40,7 @@ const ModalCreateEmployee: FC = () => {
 	const last_name = fullName.split(' ')[0]
 	const first_name = fullName.split(' ')[1]
 	const middle_name = fullName.split(' ')[2]
+	const queryClient = useQueryClient()
 
 	const sendUser = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
@@ -136,6 +137,7 @@ const ModalCreateEmployee: FC = () => {
 			})
 		},
 		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ['employees'] })
 			toast.success('Пользователь успешно создан!')
 		},
 		onError: (error) => {

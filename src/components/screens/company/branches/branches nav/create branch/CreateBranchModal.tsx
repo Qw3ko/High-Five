@@ -1,6 +1,6 @@
 import { generatePassword } from '@/utils/generatePassword'
 import { Modal } from '@mui/material'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import { ORGANIZATION_URL } from 'config/api.config'
 import { FC, useState } from 'react'
@@ -19,6 +19,7 @@ const CreateBranchModal: FC = () => {
 	const team_id = uuidv4()
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
+	const queryClient = useQueryClient()
 
 	const sendBranch = () => {
 		branchMutation.mutate()
@@ -44,6 +45,7 @@ const CreateBranchModal: FC = () => {
 			})
 		},
 		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ['branches'] })
 			handleClose()
 			setName('')
 			setAmount('')
