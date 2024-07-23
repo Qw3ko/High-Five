@@ -18,10 +18,8 @@ ul.nav {
 	display: flex;
 	font-size: 24px;
 	color: rgba(71, 65, 104, 0.6);
-	@media (max-width: 768px) {
-		width: 90%;
-	}
 }
+
 ul.nav li {
 	font-family: Raleway;
 	margin-right: 20px;

@@ -29,7 +29,7 @@
 
 .searchBar {
 	display: flex;
-	width: 800px;
+	width: fit-content;
 	height: 43px;
 	padding-left: 15px;
 	border: 1px solid #e2dfed66;
@@ -50,6 +50,9 @@
 	color: #474168;
 	border: none;
 	background-color: #e2dfed1a;
+	@media (max-width: 1670px) {
+		width: 600px;
+	}
 }
 
 .searchBarButton {
@@ -59,12 +62,12 @@
 	transition: background-color 0.2s ease-in-out;
 	border: 0.67px solid #e2dfed;
 	border-radius: 26.67px;
-	margin-left: 28px;
+	margin-right: 2px;
 	margin-top: 2px;
 	&:hover {
-    cursor: pointer;
-    background-color: #e2dfed99;
-  }
+		cursor: pointer;
+		background-color: #e2dfed99;
+	}
 }
 
 .searchDateContainer {
@@ -107,7 +110,7 @@
 	margin-top: 2px;
 	&:hover {
 		cursor: pointer;
-    background-color: #e2dfed99;
+		background-color: #e2dfed99;
 	}
 }
 

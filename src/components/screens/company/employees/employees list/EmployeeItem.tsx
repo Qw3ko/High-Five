@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import loadingGif from '../../../../../assets/images/loading.gif'
+import loadingGif from '../../../../../assets/images/loading.webp'
 import noAvatar from '../../../../../assets/images/noAvatar.svg'
 import ModalDeleteStuff from '../../search bar/delete stuff/ModalDeleteStuff'
 import ModalEditEmployee from '../../search bar/edit stuff/ModalEditStuff'

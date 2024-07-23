@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import Cookies from 'js-cookie'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
-import loadingGif from '../../../../assets/images/loading.gif'
+import loadingGif from '../../../../assets/images/loading.webp'
 import { IDialog } from './Dialogs.interface'
 import styles from './Dialogs.module.css'
 
@@ -70,9 +70,12 @@ const Dialogs: FC = () => {
 				) : data.length <= 0 ? (
 					<Link to={String(userId)}>
 						<div className={styles.chatItem}>
-							<div className={styles.profileImage}>
-								<img src={noAvatar} width={70} height={70} />
-							</div>
+							<img
+								className={styles.img}
+								src={noAvatar}
+								width={70}
+								height={70}
+							/>
 							<div className={styles.chatInfo}>
 								<span className={styles.chatName}>Свободный разговор</span>
 								<span className={styles.lastMessage}></span>
@@ -90,9 +93,12 @@ const Dialogs: FC = () => {
 							to={String(item.dialogs[0].user.external_id)}
 						>
 							<div className={styles.chatItem}>
-								<div className={styles.profileImage}>
-									<img src={noAvatar} width={70} height={70} />
-								</div>
+								<img
+									className={styles.img}
+									src={noAvatar}
+									width={70}
+									height={70}
+								/>
 								<div className={styles.chatInfo}>
 									<span className={styles.chatName}>{item.chatName}</span>
 									<span className={styles.lastMessage}>{item.lastMessage}</span>
