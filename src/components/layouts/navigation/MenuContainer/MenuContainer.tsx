@@ -12,7 +12,7 @@ const MenuContainer: FC<{ role: boolean }> = ({ role }) => {
 	const navigate = useNavigate()
 	const userId = Cookies.get('user')
 	const user = useQuery({
-		queryKey: ['user'],
+		queryKey: ['currentUser'],
 		queryFn: () => {
 			if (userId) {
 				return CompanyService.getUserById(userId)
