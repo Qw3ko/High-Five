@@ -1,5 +1,5 @@
+import Loading from '@/components/layouts/Loading'
 import { FC } from 'react'
-import loadingGif from '../../../../../assets/images/loading.webp'
 import noAvatar from '../../../../../assets/images/noAvatar.svg'
 import ModalDeleteStuff from '../../search bar/delete stuff/ModalDeleteStuff'
 import ModalEditEmployee from '../../search bar/edit stuff/ModalEditStuff'
@@ -18,10 +18,7 @@ const EmployeesItem: FC<EmployeesListProps> = ({
 	return (
 		<div className={styles.mainContainer}>
 			{isLoading ? (
-				<div className={styles.loadingContainer}>
-					<img width={301} height={262} src={loadingGif} />
-					<div>Загрузка...</div>
-				</div>
+				<Loading />
 			) : (
 				employeesData?.map((employee: IEmployee) => (
 					<div key={employee.user_id} className={styles.employeeContainer}>
