@@ -1,6 +1,3 @@
-import { useMutation } from '@tanstack/react-query'
-import axios from 'axios'
-import { USERS_URL } from 'config/api.config'
 import Cookies from 'js-cookie'
 import { FC, FormEvent, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -23,28 +20,11 @@ const AuthContent: FC = () => {
 	const navigate = useNavigate()
 	const onSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
-		login.mutate()
+		if (username === 'admin' && password === '123456') {
+			Cookies.set('user', 'admin')
+			navigate('/')
+		} else toast.error('Неправильный логин или пароль')
 	}
-
-	const login = useMutation({
-		mutationFn: () => {
-			return axios.post(USERS_URL + '/user/check_password', {
-				login: username,
-				password: password,
-			})
-		},
-		onSuccess: (data) => {
-			if (data.data === false) {
-				toast.error('Неправильный логин или пароль')
-				return
-			}
-			Cookies.set('user', data.data.user_id, { expires: 7 })
-			return navigate('/profile')
-		},
-		onError: () => {
-			return toast.error('Неправильный логин или пароль')
-		},
-	})
 
 	return (
 		<div className={styles.mainContainer}>
