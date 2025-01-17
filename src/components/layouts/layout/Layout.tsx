@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import Navigation from '../navigation/Navigation'
 import styles from './Layout.module.css'
@@ -7,8 +7,13 @@ import styles from './Layout.module.css'
 const Layout: FC = () => {
 	const navigate = useNavigate()
 	const role = true
-	const userId = Cookies.get('user')
-	if (!userId) navigate('/login')
+
+	useEffect(() => {
+		const userId = Cookies.get('user')
+		if (userId === undefined) {
+			navigate('/login')
+		}
+	})
 
 	return (
 		<div className={styles.layout}>
