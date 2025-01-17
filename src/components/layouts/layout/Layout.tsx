@@ -5,7 +5,6 @@ import styles from './Layout.module.css'
 
 const Layout: FC = () => {
 	const role = true
-
 	return (
 		<div className={styles.layout}>
 			<Navigation role={role} />
