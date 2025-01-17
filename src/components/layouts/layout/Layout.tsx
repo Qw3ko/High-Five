@@ -1,10 +1,15 @@
+import Cookies from 'js-cookie'
 import { FC } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import Navigation from '../navigation/Navigation'
 import styles from './Layout.module.css'
 
 const Layout: FC = () => {
+	const navigate = useNavigate()
 	const role = true
+	const userId = Cookies.get('user')
+	if (!userId) navigate('/login')
+
 	return (
 		<div className={styles.layout}>
 			<Navigation role={role} />
