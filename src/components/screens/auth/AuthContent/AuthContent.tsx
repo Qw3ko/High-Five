@@ -22,7 +22,7 @@ const AuthContent: FC = () => {
 		event.preventDefault()
 		if (username === 'admin' && password === '123456') {
 			Cookies.set('user', 'admin')
-			navigate('/')
+			navigate('/profile')
 		} else toast.error('Неправильный логин или пароль')
 	}
 
